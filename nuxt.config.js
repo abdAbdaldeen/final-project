@@ -15,7 +15,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['assets/css/style.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -26,9 +26,20 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/vuetify',
     '@nuxtjs/eslint-module',
   ],
-
+  vuetify: {
+    rtl: true,
+    dark: true,
+    theme: {
+      dark: {
+        primary: '#0D47A1',
+        background: '#3F51B5',
+        info: '#26A69A',
+      },
+    },
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
