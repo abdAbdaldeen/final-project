@@ -1,37 +1,29 @@
 <template>
-  <v-form>
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="4">
-          <v-text-field
-            :counter="10"
-            label="الاسم الاول"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
-          <v-text-field
-            :counter="10"
-            label="اسم الاخير"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
-          <v-text-field label="البريد الالكتروني" required></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <v-btn @click="$vuetify.theme.dark = true">{{ $vuetify.theme.dark }}</v-btn>
-  </v-form>
+  <div>
+    <AppHeader/>
+  </div>
 </template>
 
 <script>
+import AppHeader from '~/components/AppHeader.vue'
+
+
 export default {
   name: 'IndexPage',
+  components:{
+    AppHeader
+   
+  }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+$fontSize: 50px;
+$BGColor: #eeeeee;
+h1 {
+  font-size: $fontSize;
+}
+#sign-in {
+  background-color: $BGColor;
+}
+</style>
