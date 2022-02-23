@@ -1,6 +1,23 @@
+html {
+  height: 100%;
+}
 body {
-  text-align: right;
+  text-align: center;
   direction: rtl;
   box-sizing: border-box;
   word-break: break-word;
+  height: 100%;
+}
+#sign-in {
+  margin-top: 5rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  #sign-in {
+    flex-direction: column;
+    align-items: center;
+  }
 }
