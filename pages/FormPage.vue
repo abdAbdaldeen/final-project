@@ -1,5 +1,5 @@
 <template>
-  <v-form>
+  <v-form class="form">
     <v-container>
       <v-row id="sign-in">
         <h1>Sign in form</h1>
@@ -37,12 +37,40 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-$fontSize: 30px;
+.form{
+  $fontSize: 30px;
 $BGColor: #eeeeee;
 h1 {
   font-size: $fontSize;
 }
 #sign-in {
   background-color: $BGColor;
+}  
+html {
+  height: 100%;
 }
+body {
+  text-align: center;
+  direction: rtl;
+  box-sizing: border-box;
+  word-break: break-word;
+  height: 100%;
+  font: normal normal 16px/1.8 'Cairo', sans-serif, Arial;
+  font-weight: normal;
+}
+#sign-in {
+  margin-top: 5rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*@media (max-width: 800px) {
+  #sign-in {
+    flex-direction: column;
+    align-items: center;
+  }
+}*/
+}
+
 </style>
