@@ -33,11 +33,16 @@ export default {
     rtl: true,
     dark: true,
     theme: {
-      dark: {
-        primary: '#0D47A1',
-        background: '#3F51B5',
-        info: '#26A69A',
-      },
+      themes:{
+        light: {
+          primary: '#4ECCA3',
+          background: '#EEEEEE',
+        },
+        dark: {
+          primary: '#4ECCA3',
+          background: '#232931',
+        },
+      }
     },
   },
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -1,29 +1,19 @@
 <template>
   <div>
-    <AppHeader/>
+    <v-btn rounded color="primary" x-large>TEST</v-btn>
   </div>
 </template>
 
 <script>
 import AppHeader from '~/components/AppHeader.vue'
 
-
 export default {
   name: 'IndexPage',
-  components:{
-    AppHeader
-   
-  }
+  components: {
+    AppHeader,
+  },
 }
 </script>
 
 <style lang="scss">
-$fontSize: 50px;
-$BGColor: #eeeeee;
-h1 {
-  font-size: $fontSize;
-}
-#sign-in {
-  background-color: $BGColor;
-}
 </style>
