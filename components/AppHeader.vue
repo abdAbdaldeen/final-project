@@ -19,8 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-color: #eee;
-
   .container {
     display: flex;
     justify-content: space-between;
@@ -49,8 +47,7 @@ header {
     border-radius: 10px;
     font-size: 14px;
     padding: 8px 20px;
-    background-color: #eeeeee;
-    color: #eeeeee;
+    background-color: transparent;
     
   }
   @media (max-width: 768px) {

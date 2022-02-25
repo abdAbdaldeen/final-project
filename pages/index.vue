@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn rounded color="primary" x-large>TEST</v-btn>
+    <v-btn color="primary" @click="$vuetify.theme.dark = !$vuetify.theme.dark">{{ $vuetify.theme.dark }}</v-btn>
   </div>
 </template>
 
