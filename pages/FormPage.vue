@@ -49,15 +49,7 @@ h1 {
 html {
   height: 100%;
 }
-body {
-  text-align: center;
-  direction: rtl;
-  box-sizing: border-box;
-  word-break: break-word;
-  height: 100%;
-  font: normal normal 16px/1.8 'Cairo', sans-serif, Arial;
-  font-weight: normal;
-}
+
 #sign-in {
   margin-top: 5rem;
   padding: 3rem;
