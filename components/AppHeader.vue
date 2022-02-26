@@ -4,6 +4,7 @@
     <v-container class="container">
       <h1 class="logo">مبرمجون</h1>
        <form class="test">
+       <v-icon class="icon" color="primary" large>search</v-icon>
         <input type="text" placeholder="ابحث عن سؤال" class="search" />
        </form>
       <v-btn href="/FormPage" color="primary" class="btn" :small="$vuetify.breakpoint.xsOnly"  >تسجيل الدخول</v-btn>
@@ -38,6 +39,10 @@ header {
   .test{
     
       width: 100%;
+  }
+
+  .icon{
+      width: 10rem;
   }
 
   .search {

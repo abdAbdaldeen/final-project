@@ -34,6 +34,9 @@ export default {
     dark: true,
     treeShake: true,
     customVariables: ['~/assets/styles/variables.scss'],
+    icons: {
+      iconfont: 'md',
+    },
     theme: {
       themes:{
         light: {
