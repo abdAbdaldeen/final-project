@@ -38,6 +38,9 @@ export default {
       iconfont: 'md',
     },
     theme: {
+      options: {
+        customProperties: true
+      },
       themes:{
         light: {
           primary: '#4ECCA3',
