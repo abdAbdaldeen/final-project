@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Cairo';
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-SemiBold.eot');
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-SemiBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-SemiBold.woff2')
+      format('woff2'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-SemiBold.woff')
+      format('woff'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-SemiBold.ttf')
+      format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Regular.eot');
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Regular.woff2')
+      format('woff2'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Regular.woff')
+      format('woff'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Regular.ttf')
+      format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Bold.eot');
+  src: url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Bold.woff2')
+      format('woff2'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Bold.woff')
+      format('woff'),
+    url('https://cdn.alweb.com/assets/yallansocial/fonts/Cairo-Bold.ttf')
+      format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  text-align: right;
+  direction: rtl;
+  box-sizing: border-box;
+  word-break: break-word;
+  font: normal normal 16px/1.8 'Cairo', sans-serif, Arial;
+  font-weight: normal;
+}
+
+.v-application {
+  background-color: var(--v-background-base) !important;
+}
