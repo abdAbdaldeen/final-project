@@ -5,7 +5,7 @@
       <h1 class="logo">مبرمجون</h1>
       <form class="search-form">
         <input type="text" placeholder="ابحث عن سؤال" class="search" />
-        <v-icon class="icon" color="primary">search</v-icon>
+        <v-icon class="search-icon" color="primary">search</v-icon>
       </form>
 
       <v-icon
@@ -72,9 +72,14 @@ header {
     border-radius: 10px;
   }
 
-  .icon {
+  .search-form:focus {
+    border: 2px solid #4ecca3;
+  }
+
+  .search-icon {
     justify-content: flex-end;
     font-size: 1.7rem;
+    margin-left: 0.5rem;
   }
 
   .search {
@@ -86,6 +91,7 @@ header {
     padding: 8px 7px;
     background-color: transparent;
   }
+
   .search:focus {
     outline: none;
   }
@@ -95,7 +101,7 @@ header {
       font-size: 10px;
       padding: 5px 15px 5px 20px;
     }
-    .icon {
+    .search-icon {
       font-size: 1.5rem;
     }
     .logo {
