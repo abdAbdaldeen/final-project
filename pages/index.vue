@@ -1,6 +1,6 @@
 <template>
   <div>
-   
+   <QuestionBox/>
   </div>
 </template>
 
