@@ -45,10 +45,13 @@ export default {
         light: {
           primary: '#4ECCA3',
           background: '#EEEEEE',
+          qBoxBg:'#fff',
+
         },
         dark: {
           primary: '#4ECCA3',
           background: '#232931',
+          qBoxBg:'#393E46'
         },
       }
     },

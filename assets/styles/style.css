@@ -58,3 +58,6 @@ body {
 .v-application {
   background-color: var(--v-background-base) !important;
 }
+.theme--dark.v-application input {
+  color: #fff;
+}
