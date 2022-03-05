@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="q-box">
-      <h1 class="title" >{{ data.title }}</h1>
+      <h1 class="title">{{ data.title }}</h1>
       <span class="votes-num">{{ data.votesNum }}</span>
       <p class="body">{{ data.body }}</p>
       <span class="category">{{ data.category }}</span>
@@ -34,12 +34,12 @@ export default {
   border: 2px solid var(--v-primary-base);
   display: grid;
   align-items: start;
- // align-content: space-around;
-  padding:1rem 2rem;
-  
-  .title{
-     padding-bottom: 1rem; 
-     font-weight: bold;
+  padding: 1rem 2rem;
+
+  .title {
+    padding-bottom: 1rem;
+    font-weight: bold;
+    max-width: 60rem;
   }
   .votes-num {
     border: 2px solid var(--v-primary-base);
@@ -47,37 +47,36 @@ export default {
     grid-column: 6;
     max-width: 2rem;
     text-align: center;
-    grid-template-rows:end ;
+    grid-template-rows: end;
   }
-  .body{
-      grid-row: 2;
+  .body {
+    grid-row: 2;
   }
-  .category{
-      grid-row: 3;
-      border: 2px solid var(--v-primary-base);
-      max-width: 5rem;
-      text-align: center;
+  .category {
+    grid-row: 3;
+    border: 2px solid var(--v-primary-base);
+    max-width: 5rem;
+    text-align: center;
   }
   @media (max-width: 768px) {
-      padding:0.5rem 1rem;
+    padding: 0.5rem 1rem;
 
-      .title{
-          font-size: 1rem !important;
-          padding-bottom: 0.5rem;
-          padding-left: 1rem;
-      }
-      .votes-num{
-          min-width: 1.5rem;
-          font-size: 0.7rem;
-          
-      }
-      .body{
-          font-size: 0.7rem !important;
-      }
-      .category{
-          font-size:0.7rem ;
-          width: 3rem;
-      }
+    .title {
+      font-size: 1rem !important;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+    }
+    .votes-num {
+      min-width: 1.5rem;
+      font-size: 0.7rem;
+    }
+    .body {
+      font-size: 0.7rem !important;
+    }
+    .category {
+      font-size: 0.7rem;
+      width: 3rem;
+    }
   }
 }
 </style>
