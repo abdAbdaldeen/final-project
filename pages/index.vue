@@ -1,18 +1,15 @@
 <template>
   <div>
-   <QuestionBox/>
+    <AskQuestionBox />
+    <QuestionBox />
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'IndexPage',
-  components: {
-    
-  },
+  components: {},
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
