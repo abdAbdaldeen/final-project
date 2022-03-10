@@ -31,10 +31,11 @@ export default {
 <style lang="scss">
 .q-box {
   background-color: var(--v-qBoxBg-base);
-  border: 2px solid var(--v-primary-base);
+  box-shadow: 3px 3px 5px var(--v-secondary-lighten5);
   display: grid;
   align-items: start;
   padding: 1rem 2rem;
+  border-radius: 10px;
 
   .title {
     padding-bottom: 1rem;
