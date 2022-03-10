@@ -17,7 +17,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          title: 'ما هو الفرق بين Methods vs Computed in Vue',
+          title: 'ما هو الفرق بين Methods و Computed في Vue',
           votesNum: 0,
           body: 'ما هو الفرق الرئيسي بين methods and a computed value في Vue.js? انها تبدو متشابهة وقابلة للتبديل',
           category: 'vue',
