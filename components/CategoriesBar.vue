@@ -1,20 +1,18 @@
 <template>
-  <v-container>
-    <div class="categories">
-      <div v-for="category in categories" :key="category.id">
-        <a href="">
-          <v-img
-            class="category"
-            :src="category.Src"
-            :alt="category.alt"
-            max-width="100px"
-            max-height="140px"
-          >
-          </v-img
-        ></a>
-      </div>
+  <div class="categories">
+    <div v-for="category in categories" :key="category.id">
+      <nuxt-link to="/FormPage">
+        <v-img
+          class="category"
+          :src="category.Src"
+          :alt="category.alt"
+          max-width="100px"
+          max-height="140px"
+        >
+        </v-img>
+      </nuxt-link>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -110,18 +108,6 @@ export default {
 </script>
 
 <style lang="scss">
-.categories::-webkit-scrollbar {
-  height: 0.3em;
-}
-
-.categories::-webkit-scrollbar-track {
-  //box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.categories::-webkit-scrollbar-thumb {
-  background-color: var(--v-secondary-lighten4);
-  //outline: 1px solid slategrey;
-}
 .categories {
   display: flex;
   flex-direction: row;
@@ -129,7 +115,19 @@ export default {
   padding: 0.5rem;
   overflow: auto;
   white-space: nowrap;
-  border: 2px solid var(--v-secondary-lighten5);
+  border-top: 1px solid var(--v-secondary-lighten5);
+  &::-webkit-scrollbar {
+    height: 0.3em;
+  }
+
+  &::-webkit-scrollbar-track {
+    //box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--v-secondary-lighten4);
+    //outline: 1px solid slategrey;
+  }
 
   .category {
     width: 4rem;
