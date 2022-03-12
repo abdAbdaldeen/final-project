@@ -44,7 +44,7 @@ export default {
       themes:{
         light: {
           primary: '#4ECCA3',
-          background: '#EEEEEE',
+          background: '#FCFCFC',
           qBoxBg:'#fff',
 
         },
@@ -60,12 +60,29 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.apiKey,
+          authDomain: process.env.authDomain,
+          projectId: process.env.projectId,
+          storageBucket: process.env.storageBucket,
+          messagingSenderId: process.env.messagingSenderId,
+          appId: process.env.appId,
+          measurementId: process.env.measurementId
+        },
+        services: {
+          auth: true
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
