@@ -31,7 +31,7 @@ export default {
 <style lang="scss">
 .q-box {
   background-color: var(--v-qBoxBg-base);
-  box-shadow: 3px 3px 5px var(--v-secondary-lighten5);
+  box-shadow: $boxShadow;
   display: grid;
   align-items: start;
   padding: 1rem 2rem;
@@ -43,10 +43,16 @@ export default {
     max-width: 60rem;
   }
   .votes-num {
-    border: 2px solid var(--v-primary-base);
+    box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
+    border-radius: 4px;
+
+    // border: 2px solid var(--v-primary-base);
     grid-row: 1;
     grid-column: 6;
-    max-width: 2rem;
+    // max-width: 2rem;
+    justify-self: flex-end;
+    padding: 0.4rem 0.8rem;
+
     text-align: center;
     grid-template-rows: end;
   }
@@ -55,8 +61,12 @@ export default {
   }
   .category {
     grid-row: 3;
-    border: 2px solid var(--v-primary-base);
-    max-width: 5rem;
+    // border: 2px solid var(--v-primary-base);
+    box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
+    border-radius: 4px;
+    // max-width: 5rem;
+    justify-self: flex-start;
+    padding: 0.5rem 1rem;
     text-align: center;
   }
   @media (max-width: 768px) {
