@@ -2,7 +2,7 @@
   <v-container>
     <div class="askQ-box">
       <nuxt-link to="/FormPage">
-        <div class="ask"><p>اطرح سؤال</p></div>
+        <div class="ask">اطرح سؤال</div>
       </nuxt-link>
     </div>
   </v-container>
@@ -14,6 +14,9 @@ export default {}
 
 <style lang="scss">
 .askQ-box {
+  a {
+    text-decoration: none;
+  }
   .ask {
     margin-top: 1rem;
     background-color: var(--v-qBoxBg-base);
@@ -23,10 +26,6 @@ export default {}
     height: 4rem;
     padding: 1rem;
   }
-  p {
-    text-decoration: none;
-  }
-
   @media (max-width: 768px) {
     .ask {
       font-size: 0.7rem;
