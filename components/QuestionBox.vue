@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 .q-box {
-  background-color: var(--v-qBoxBg-base);
+  //background-color: var(--v-qBoxBg-base);
   box-shadow: $boxShadow;
   display: grid;
   align-items: start;
@@ -86,6 +86,7 @@ export default {
     }
     .category {
       font-size: 0.7rem;
+      padding: 0.5rem 0.5rem;
       width: 3rem;
     }
   }
