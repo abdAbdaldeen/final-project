@@ -7,7 +7,6 @@
       <div v-else-if="$route.params.id == 'تسجيل-الدخول'">
         <SignInForm />
       </div>
-      {{ $route.params.id }}
     </div>
   </v-container>
 </template>

@@ -24,7 +24,7 @@
           >
 
           <v-btn
-            v-if="true"
+            v-if="!user.token"
             href="/l/تسجيل-الدخول"
             color="primary"
             class="btn"
@@ -53,6 +53,11 @@
 <script>
 export default {
   name: 'AppHeader',
+  computed: {
+    user(){
+      return this.$store.state.user;
+    }
+  }
 }
 </script>
 
