@@ -158,6 +158,10 @@ export default {
     }
 
     @media (max-width: 768px) {
+      .container {
+        column-gap: 1rem;
+      }
+
       .search {
         font-size: 10px;
         padding: 5px 15px 5px 20px;
