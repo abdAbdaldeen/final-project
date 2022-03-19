@@ -7,8 +7,9 @@
         أهلا بك في مبرمجون <br />انضم لمجتمع المبرمجين العرب و ابدأ مغامرتك
         الخاصة
       </p>
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           :counter="10"
           label="الاسم"
           :rules="nameRules"
@@ -17,8 +18,9 @@
         ></v-text-field>
       </v-col>
 
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           label="البريد الإلكتروني"
           required
           :rules="emailRules"
@@ -26,8 +28,9 @@
         ></v-text-field>
       </v-col>
 
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           label="كلمة المرور"
           hint="8 حروف على الاقل "
