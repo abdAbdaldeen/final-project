@@ -75,8 +75,9 @@ export default {
             password: this.password,
           })
           localStorage.setItem('authToken', res.data.token)
-          this.$store.commit('user/login', res.data.token)
+          this.$store.commit('user/login', res.data)
           this.$router.push('/')
+          // this.loading = false;
         } catch (error) {
           console.error(error)
           this.loading = false;

@@ -1,9 +1,15 @@
 export const state = () => ({
-  token: ""
+  email: '',
+  photoURL: '',
+  displayName: '',
+  token: '',
 })
 
 export const mutations = {
-  login(state, token) {
-      state.token = token;
+  login(state, data) {
+    state.email = data.email
+    state.photoURL = data.photoURL
+    state.displayName = data.displayName
+    state.token = data.token
   },
 }
