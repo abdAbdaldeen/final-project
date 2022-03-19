@@ -1,5 +1,5 @@
 <template>
-  <v-form class="form">
+  <v-form class="form" @submit.prevent="submit" ref="form">
     <v-row class="sign-in">
       <h1>تسجيل الدخول</h1>
       <br />
@@ -7,6 +7,7 @@
       <v-col class="input">
         <v-text-field
           class="tf"
+          v-model="email"
           label="البريد الإلكتروني"
           required
           :rules="emailRules"
@@ -17,6 +18,7 @@
       <v-col class="input">
         <v-text-field
           class="tf"
+          v-model="password"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           label="كلمة المرور"
           hint="8 حروف على الاقل "
@@ -32,7 +34,13 @@
         <nuxt-link to="/l/انشاء-حساب">
           <div>إنشاء حساب</div>
         </nuxt-link>
-        <v-btn color="primary">تسجيل الدخول</v-btn>
+        <v-btn
+          color="primary"
+          type="submit"
+          :loading="loading"
+          :disabled="loading"
+          >تسجيل الدخول</v-btn
+        >
       </div>
     </v-row>
   </v-form>
@@ -49,14 +57,35 @@ export default {
       (v) => !!v || 'البريد الإلكتروني مطلوب',
       (v) => /.+@.+/.test(v) || 'يجب ان يكون البريد الاكتروني صحيح',
     ],
-    password: 'Password',
+    password: '',
     show: false,
     passwordRules: {
       required: (value) => !!value || 'كلمة المرور مطلوبة',
-      min: (v) => (v && v.length >= 8) || 'Min 8 characters',
+      // min: (v) => (v && v.length >= 8) || 'Min 8 characters',
       emailMatch: () => `The email and password you entered don't match`,
     },
+
+    loading: false,
   }),
+  methods: {
+    async submit() {
+      if (this.$refs.form.validate()) {
+        try {
+          this.loading = true
+          const res = await this.$axios.post('users/login', {
+            email: this.email,
+            password: this.password,
+          })
+          localStorage.setItem('authToken', res.data.token)
+          this.$store.commit('user/login', res.data.token)
+          this.$router.push('/')
+        } catch (error) {
+          console.error(error)
+          this.loading = false
+        }
+      }
+    },
+  },
 }
 </script>
 

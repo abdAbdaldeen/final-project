@@ -24,7 +24,7 @@
           >
 
           <v-btn
-            v-if="false"
+            v-if="!user.token"
             href="/l/تسجيل-الدخول"
             color="primary"
             class="btn"
@@ -64,9 +64,9 @@
                         ></span
                       >
                     </v-avatar>
-                    <h3>{{ user.fullName }}</h3>
+                    <h3>{{ user1.fullName }}</h3>
                     <p class="text-caption mt-1">
-                      {{ user.email }}
+                      {{ user1.email }}
                     </p>
                     <v-divider class="my-3"></v-divider>
                     <v-btn class="btn" depressed rounded text>
@@ -92,12 +92,17 @@
 export default {
   name: 'AppHeader',
   data: () => ({
-    user: {
+    user1: {
       initials: 'JD',
       fullName: 'John Doe',
       email: 'john.doe@doe.com',
     },
   }),
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
 }
 </script>
 
