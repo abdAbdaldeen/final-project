@@ -1,5 +1,5 @@
 <template>
-  <v-form class="form" @submit.prevent="submit" ref="form">
+  <v-form ref="form" class="form" @submit.prevent="submit">
     <v-row class="sign-in">
       <h1>إنشاء حساب</h1>
       <br />
@@ -9,8 +9,8 @@
       </p>
       <v-col class="input">
         <v-text-field
-          class="tf"
           v-model="name"
+          class="tf"
           :counter="10"
           label="الاسم"
           :rules="nameRules"
@@ -21,8 +21,8 @@
 
       <v-col class="input">
         <v-text-field
-          class="tf"
           v-model="email"
+          class="tf"
           label="البريد الإلكتروني"
           required
           :rules="emailRules"
@@ -32,8 +32,8 @@
 
       <v-col class="input">
         <v-text-field
-          class="tf"
           v-model="password"
+          class="tf"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           label="كلمة المرور"
           hint="8 حروف على الاقل "
@@ -103,6 +103,7 @@ export default {
           this.$store.commit('user/login', res.data)
           this.$router.push('/')
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(error)
           this.loading = false
         }

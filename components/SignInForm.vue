@@ -1,13 +1,13 @@
 <template>
-  <v-form class="form" @submit.prevent="submit" ref="form">
+  <v-form ref="form" class="form" @submit.prevent="submit">
     <v-row class="sign-in">
       <h1>تسجيل الدخول</h1>
       <br />
 
       <v-col class="input">
         <v-text-field
-          class="tf"
           v-model="email"
+          class="tf"
           label="البريد الإلكتروني"
           required
           :rules="emailRules"
@@ -17,8 +17,8 @@
 
       <v-col class="input">
         <v-text-field
-          class="tf"
           v-model="password"
+          class="tf"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           label="كلمة المرور"
           hint="8 حروف على الاقل "
@@ -61,7 +61,7 @@ export default {
     show: false,
     passwordRules: {
       required: (value) => !!value || 'كلمة المرور مطلوبة',
-      // min: (v) => (v && v.length >= 8) || 'Min 8 characters',
+      min: (v) => (v && v.length >= 8) || 'Min 8 characters',
       emailMatch: () => `The email and password you entered don't match`,
     },
 
@@ -81,6 +81,7 @@ export default {
           this.$router.push('/')
           // this.loading = false;
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(error)
           this.loading = false
         }
