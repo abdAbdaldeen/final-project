@@ -103,6 +103,7 @@ export default {
           this.$store.commit('user/login', res.data.token)
           this.$router.push('/')
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(error)
           this.loading = false
         }
