@@ -31,16 +31,54 @@
             :small="$vuetify.breakpoint.xsOnly"
             >تسجيل الدخول</v-btn
           >
-          <v-avatar
-            v-else
-            class="avatar"
-            color="primary"
-            :size="$vuetify.breakpoint.xsOnly ? '30' : '43'"
-          >
-            <v-icon :small="$vuetify.breakpoint.xsOnly" color="background"
-              >account_circle</v-icon
-            >
-          </v-avatar>
+          <v-row v-else justify="center">
+            <v-menu bottom min-width="200px" rounded offset-y>
+              <template #activator="{ on }">
+                <v-btn icon large v-on="on">
+                  <v-avatar
+                    class="avatar"
+                    color="primary"
+                    :size="$vuetify.breakpoint.xsOnly ? '30' : '43'"
+                  >
+                    <v-icon
+                      :small="$vuetify.breakpoint.xsOnly"
+                      color="background"
+                      >account_circle</v-icon
+                    >
+                  </v-avatar>
+                </v-btn>
+              </template>
+              <v-card>
+                <v-list-item-content class="justify-center">
+                  <div class="mx-auto text-center">
+                    <v-avatar
+                      class="avatar"
+                      color="primary"
+                      :size="$vuetify.breakpoint.xsOnly ? '30' : '43'"
+                    >
+                      <span class="white--text text-h5">
+                        <v-icon
+                          :small="$vuetify.breakpoint.xsOnly"
+                          color="background"
+                          >account_circle</v-icon
+                        ></span
+                      >
+                    </v-avatar>
+                    <h3>{{ user1.fullName }}</h3>
+                    <p class="text-caption mt-1">
+                      {{ user1.email }}
+                    </p>
+                    <v-divider class="my-3"></v-divider>
+                    <v-btn class="btn" depressed rounded text>
+                      عرض الملف الشخصي
+                    </v-btn>
+                    <v-divider class="my-3"></v-divider>
+                    <v-btn depressed rounded text> تسجيل الخروج </v-btn>
+                  </div>
+                </v-list-item-content>
+              </v-card>
+            </v-menu>
+          </v-row>
         </div>
       </header>
       <nav>
@@ -53,11 +91,18 @@
 <script>
 export default {
   name: 'AppHeader',
+  data: () => ({
+    user1: {
+      initials: 'JD',
+      fullName: 'John Doe',
+      email: 'john.doe@doe.com',
+    },
+  }),
   computed: {
-    user(){
-      return this.$store.state.user;
-    }
-  }
+    user() {
+      return this.$store.state.user
+    },
+  },
 }
 </script>
 
@@ -69,7 +114,7 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      column-gap: 1rem;
+      column-gap: 1.2rem;
     }
     .logo {
       word-break: normal;
@@ -107,6 +152,9 @@ export default {
 
     .search:focus {
       outline: none;
+    }
+    .cardIcon {
+      vertical-align: middle;
     }
 
     @media (max-width: 768px) {

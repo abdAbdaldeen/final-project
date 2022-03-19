@@ -7,8 +7,9 @@
         أهلا بك في مبرمجون <br />انضم لمجتمع المبرمجين العرب و ابدأ مغامرتك
         الخاصة
       </p>
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           v-model="name"
           :counter="10"
           label="الاسم"
@@ -18,8 +19,9 @@
         ></v-text-field>
       </v-col>
 
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           v-model="email"
           label="البريد الإلكتروني"
           required
@@ -28,8 +30,9 @@
         ></v-text-field>
       </v-col>
 
-      <v-col id="input">
+      <v-col class="input">
         <v-text-field
+          class="tf"
           v-model="password"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           label="كلمة المرور"
@@ -89,7 +92,7 @@ export default {
     async submit() {
       if (this.$refs.form.validate()) {
         try {
-          this.loading = true;
+          this.loading = true
           const res = await this.$axios.post('users/signup', {
             name: this.name,
             email: this.email,
@@ -101,7 +104,7 @@ export default {
           this.$router.push('/')
         } catch (error) {
           console.error(error)
-          this.loading = false;
+          this.loading = false
         }
       }
     },
