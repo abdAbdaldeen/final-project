@@ -12,4 +12,10 @@ export const mutations = {
     state.displayName = data.displayName
     state.token = data.token
   },
+  logout(state) {
+    state.email = ""
+    state.photoURL = ""
+    state.displayName = ""
+    state.token = ""
+  }
 }

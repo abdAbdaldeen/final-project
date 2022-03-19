@@ -40,7 +40,13 @@
                     color="primary"
                     :size="$vuetify.breakpoint.xsOnly ? '30' : '43'"
                   >
+                    <img
+                      v-if="user.photoURL"
+                      :src="user.photoURL"
+                      :alt="user.displayName"
+                    />
                     <v-icon
+                      v-else
                       :small="$vuetify.breakpoint.xsOnly"
                       color="background"
                       >account_circle</v-icon
@@ -56,24 +62,28 @@
                       color="primary"
                       :size="$vuetify.breakpoint.xsOnly ? '30' : '43'"
                     >
-                      <span class="white--text text-h5">
-                        <v-icon
-                          :small="$vuetify.breakpoint.xsOnly"
-                          color="background"
-                          >account_circle</v-icon
-                        ></span
+                      <img
+                        v-if="user.photoURL"
+                        :src="user.photoURL"
+                        :alt="user.displayName"
+                      />
+                      <v-icon
+                        v-else
+                        :small="$vuetify.breakpoint.xsOnly"
+                        color="background"
+                        >account_circle</v-icon
                       >
                     </v-avatar>
-                    <h3>{{ user1.fullName }}</h3>
+                    <h3>{{ user.displayName }}</h3>
                     <p class="text-caption mt-1">
-                      {{ user1.email }}
+                      {{ user.email }}
                     </p>
                     <v-divider class="my-3"></v-divider>
                     <v-btn class="btn" depressed rounded text>
                       عرض الملف الشخصي
                     </v-btn>
                     <v-divider class="my-3"></v-divider>
-                    <v-btn depressed rounded text> تسجيل الخروج </v-btn>
+                    <v-btn depressed rounded text @click="logout"> تسجيل الخروج </v-btn>
                   </div>
                 </v-list-item-content>
               </v-card>
@@ -91,17 +101,16 @@
 <script>
 export default {
   name: 'AppHeader',
-  data: () => ({
-    user1: {
-      initials: 'JD',
-      fullName: 'John Doe',
-      email: 'john.doe@doe.com',
-    },
-  }),
   computed: {
     user() {
       return this.$store.state.user
     },
+  },
+  methods: {
+    logout(){
+      localStorage.removeItem('authToken')
+      this.$store.commit('user/logout')
+    }
   },
 }
 </script>

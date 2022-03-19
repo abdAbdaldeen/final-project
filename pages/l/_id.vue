@@ -1,14 +1,14 @@
 <template>
-  <v-container>
-    <div>
-      <div v-if="$route.params.id == 'انشاء-حساب'">
+  <section class="pageContainer">
+    <v-container>
+      <template v-if="$route.params.id == 'انشاء-حساب'">
         <Sign-up-Form />
-      </div>
-      <div v-else-if="$route.params.id == 'تسجيل-الدخول'">
+      </template>
+      <template v-else-if="$route.params.id == 'تسجيل-الدخول'">
         <SignInForm />
-      </div>
-    </div>
-  </v-container>
+      </template>
+    </v-container>
+  </section>
 </template>
 
 <script>
@@ -48,36 +48,41 @@ export default {
 </script>
 
 <style lang="scss">
-.form {
+.pageContainer {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: auto;
-  padding: 1rem;
-  max-width: 25rem;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
-  .sign-in {
-    padding: 1rem;
-    text-align: center;
+  .form {
     display: flex;
-    flex-direction: column;
-    align-content: center;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-  }
-  #input {
-    padding: 0.2rem;
-    max-width: 20rem;
-  }
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 7rem;
-  }
-  p {
-    color: var(--v-primary-base);
+    margin: auto;
+    padding: 1rem;
+    max-width: 25rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
+    .sign-in {
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+    #input {
+      padding: 0.2rem;
+      max-width: 20rem;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7rem;
+    }
+    p {
+      color: var(--v-primary-base);
+    }
   }
 }
 </style>
