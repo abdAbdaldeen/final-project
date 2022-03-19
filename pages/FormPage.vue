@@ -1,6 +1,6 @@
 <template>
-  <v-form class="form">
-    <v-container>
+  <v-container>
+    <v-form class="form">
       <v-row id="sign-in">
         <h1>Sign in form</h1>
         <v-col cols="12" md="4">
@@ -8,6 +8,7 @@
             :counter="10"
             label="الاسم الاول"
             required
+            outlined
           ></v-text-field>
         </v-col>
 
@@ -26,8 +27,8 @@
           $vuetify.theme.dark
         }}</v-btn>
       </v-row>
-    </v-container>
-  </v-form>
+    </v-form>
+  </v-container>
 </template>
 
 <script>
@@ -36,33 +37,32 @@ export default {
 }
 </script>
 
-<style  lang="scss" scoped>
-.form{
+<style lang="scss" scoped>
+.form {
   $fontSize: 30px;
-$BGColor: #eeeeee;
-h1 {
-  font-size: $fontSize;
-}
-#sign-in {
-  background-color: $BGColor;
-}  
-html {
-  height: 100%;
-}
+  $BGColor: #eeeeee;
+  h1 {
+    font-size: $fontSize;
+  }
+  #sign-in {
+    background-color: $BGColor;
+  }
+  html {
+    height: 100%;
+  }
 
-#sign-in {
-  margin-top: 5rem;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/*@media (max-width: 800px) {
+  #sign-in {
+    margin-top: 5rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /*@media (max-width: 800px) {
   #sign-in {
     flex-direction: column;
     align-items: center;
   }
 }*/
 }
-
 </style>
