@@ -1,16 +1,16 @@
 <template>
-  <v-container>
-    <v-form>
+  <v-container class="pageContainer">
+    <v-form class="form">
       <v-text-field label=" عنوان السؤال" outlined></v-text-field>
       <v-textarea outlined name="input-7-4" label="نص السؤال"></v-textarea>
       <v-autocomplete
         :items="data.categories"
-        label="select category"
+        label="اختر التصنيف"
         outlined
         dense
         clearable
       ></v-autocomplete>
-      <v-btn class="mr-4" type="submit" color="primary"> نشر </v-btn>
+      <v-btn class="btn" type="submit" color="primary"> نشر </v-btn>
     </v-form>
   </v-container>
 </template>
@@ -45,8 +45,20 @@ export default {
 </script>
 
 <style lang="scss">
-form {
+.pageContainer {
   display: flex;
-  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+  }
+  .btn {
+    width: 7rem;
+    align-self: center;
+  }
 }
 </style>
