@@ -1,10 +1,21 @@
 <template>
   <v-container class="pageContainer">
-    <v-form class="form">
-      <v-text-field label=" عنوان السؤال" outlined></v-text-field>
-      <v-textarea outlined name="input-7-4" label="نص السؤال"></v-textarea>
+    <v-form class="form" ref="form" @submit.prevent="submit">
+      <v-text-field
+        v-model="title"
+        label=" عنوان السؤال"
+        outlined
+      ></v-text-field>
+      <v-textarea
+        v-model="body"
+        outlined
+        name="input-7-4"
+        label="نص السؤال"
+      ></v-textarea>
       <v-autocomplete
+        v-model="groupID"
         :items="data.categories"
+        item-text="name"
         label="اختر التصنيف"
         outlined
         dense
@@ -24,21 +35,45 @@ export default {
       default: () => {
         return {
           categories: [
-            'HTML',
-            'CSS',
-            'JS',
-            'VUE',
-            'nuxt',
-            'react',
-            'sql',
-            'c++',
-            'java',
-            'python',
-            'mongoDB',
-            'firebase',
+            { name: 'git', id: "CMuQgAGZtNzesjQjZ4hE" },
           ],
         }
       },
+    },
+  },
+  data: () => ({
+    title: '',
+    body: '',
+    groupID: '',
+
+    loading: false,
+  }),
+  methods: {
+    async submit() {
+      
+        try {
+          this.loading = true
+          const res = await this.$axios.post(
+            'questions/add',
+            {
+              title: this.title,
+              body: this.body,
+              groupID: this.groupID,
+            },
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem('authToken')}`,
+              },
+            }
+          )
+          console.log(res)
+          this.$router.push('/')
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(error)
+          this.loading = false
+        }
+      
     },
   },
 }
