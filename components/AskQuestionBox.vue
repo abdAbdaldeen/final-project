@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="askQ-box">
-      <nuxt-link to="/FormPage">
+      <nuxt-link to="/AskQuestionPage">
         <div class="ask">اطرح سؤال</div>
       </nuxt-link>
     </div>

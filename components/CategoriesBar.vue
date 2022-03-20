@@ -1,7 +1,7 @@
 <template>
   <div class="categories">
     <div v-for="category in categories" :key="category.id">
-      <nuxt-link to="/FormPage">
+      <nuxt-link to="/AskQuestionPage">
         <v-img
           class="category"
           :src="category.Src"
