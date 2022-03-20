@@ -100,7 +100,7 @@ export default {
             confirmPassword: this.password,
           })
           localStorage.setItem('authToken', res.data.token)
-          this.$store.commit('user/login', res.data.token)
+          this.$store.commit('user/login', res.data)
           this.$router.push('/')
         } catch (error) {
           // eslint-disable-next-line no-console
