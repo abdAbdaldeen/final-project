@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" class="form" @submit.prevent="submit">
+  <v-form ref="form" class="FPform" @submit.prevent="submit">
     <v-row class="sign-in">
       <h1>تسجيل الدخول</h1>
       <br />

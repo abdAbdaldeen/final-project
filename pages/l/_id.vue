@@ -1,5 +1,5 @@
 <template>
-  <section class="pageContainer">
+  <section class="FpageContainer">
     <v-container>
       <template v-if="$route.params.id == 'انشاء-حساب'">
         <Sign-up-Form />
@@ -48,11 +48,11 @@ export default {
 </script>
 
 <style lang="scss">
-.pageContainer {
+.FpageContainer {
   flex: 1;
   display: flex;
   align-items: center;
-  .form {
+  .FPform {
     display: flex;
     align-items: center;
     justify-content: center;

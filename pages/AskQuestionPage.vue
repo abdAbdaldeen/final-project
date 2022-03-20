@@ -1,6 +1,6 @@
 <template>
-  <v-container class="pageContainer">
-    <v-form class="form">
+  <v-container class="AQpageContainer">
+    <v-form class="AQform">
       <v-text-field label=" عنوان السؤال" outlined></v-text-field>
       <v-textarea outlined name="input-7-4" label="نص السؤال"></v-textarea>
       <v-autocomplete
@@ -45,11 +45,11 @@ export default {
 </script>
 
 <style lang="scss">
-.pageContainer {
+.AQpageContainer {
   display: flex;
   flex: 1;
   align-items: center;
-  .form {
+  .AQform {
     display: flex;
     flex-direction: column;
     justify-content: center;
