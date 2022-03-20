@@ -1,6 +1,6 @@
 <template>
-  <v-container class="pageContainer">
-    <v-form class="form" ref="form" @submit.prevent="submit">
+  <v-container class="AQpageContainer">
+    <v-form class="AQform" ref="form" @submit.prevent="submit">
       <v-text-field
         v-model="title"
         label=" عنوان السؤال"
@@ -80,11 +80,11 @@ export default {
 </script>
 
 <style lang="scss">
-.pageContainer {
+.AQpageContainer {
   display: flex;
   flex: 1;
   align-items: center;
-  .form {
+  .AQform {
     display: flex;
     flex-direction: column;
     justify-content: center;
