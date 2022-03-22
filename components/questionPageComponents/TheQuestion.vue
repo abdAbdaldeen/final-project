@@ -1,14 +1,19 @@
 <template>
   <div>
     <h1>{{ data.title }}</h1>
-    <hr />
-    <p>{{ data.body }}</p>
+    <br />
+    <div class="QBody">
+      <add-vote />
+      <p>{{ data.body }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import AddVote from './AddVote.vue'
 export default {
   name: 'TheQuestion',
+  components: { AddVote },
   props: {
     data: {
       type: Object,
@@ -25,4 +30,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.QBody {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+}
+</style>
