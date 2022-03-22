@@ -14,7 +14,7 @@
       ></v-textarea>
       <v-autocomplete
         v-model="groupID"
-        :items="data.categories"
+        :items="categories"
         item-text="name"
         label="اختر التصنيف"
         outlined
@@ -29,18 +29,6 @@
 <script>
 export default {
   name: 'AskQuestionPage',
-  props: {
-    data: {
-      type: Object,
-      default: () => {
-        return {
-          categories: [
-            { name: 'git', id: "CMuQgAGZtNzesjQjZ4hE" },
-          ],
-        }
-      },
-    },
-  },
   data: () => ({
     title: '',
     body: '',
@@ -48,6 +36,11 @@ export default {
 
     loading: false,
   }),
+  computed:{
+    categories() {
+      return this.$store.state.categories.categories;
+    },
+  },
   methods: {
     async submit() {
       
@@ -58,7 +51,7 @@ export default {
             {
               title: this.title,
               body: this.body,
-              groupID: this.groupID,
+              groupID: this.groupID.replace(/ /g,"-"),
             },
             {
               headers: {
