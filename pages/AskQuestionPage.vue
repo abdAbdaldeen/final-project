@@ -1,6 +1,6 @@
 <template>
   <v-container class="AQpageContainer">
-    <v-form class="AQform" ref="form" @submit.prevent="submit">
+    <v-form ref="form" class="AQform" @submit.prevent="submit">
       <v-text-field
         v-model="title"
         label=" عنوان السؤال"
@@ -34,9 +34,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          categories: [
-            { name: 'git', id: "CMuQgAGZtNzesjQjZ4hE" },
-          ],
+          categories: [{ name: 'git', id: 'CMuQgAGZtNzesjQjZ4hE' }],
         }
       },
     },
@@ -50,30 +48,29 @@ export default {
   }),
   methods: {
     async submit() {
-      
-        try {
-          this.loading = true
-          const res = await this.$axios.post(
-            'questions/add',
-            {
-              title: this.title,
-              body: this.body,
-              groupID: this.groupID,
+      try {
+        this.loading = true
+        const res = await this.$axios.post(
+          'questions/add',
+          {
+            title: this.title,
+            body: this.body,
+            groupID: this.groupID,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('authToken')}`,
             },
-            {
-              headers: {
-                authorization: `Bearer ${localStorage.getItem('authToken')}`,
-              },
-            }
-          )
-          console.log(res)
-          this.$router.push('/')
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error)
-          this.loading = false
-        }
-      
+          }
+        )
+        // eslint-disable-next-line no-console
+        console.log(res)
+        this.$router.push('/')
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        this.loading = false
+      }
     },
   },
 }
