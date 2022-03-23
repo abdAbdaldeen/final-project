@@ -1,11 +1,11 @@
 <template>
   <div class="categories">
-    <div v-for="category in categories" :key="category.id">
-      <nuxt-link to="/AskQuestionPage">
+    <div v-for="category in categories" :key="category.gID">
+      <nuxt-link :to="'/g/'+category.gID">
         <v-img
           class="category"
-          :src="category.Src"
-          :alt="category.alt"
+          :src="category.imgUrl"
+          :alt="category.name"
           max-width="100px"
           max-height="140px"
         >
@@ -18,92 +18,11 @@
 <script>
 export default {
   name: 'CategoriesBar',
-  data() {
-    return {
-      categories: [
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/301',
-          alt: 'github',
-        },
-        {
-          Src: 'https://picsum.photos/500/300',
-          alt: 'github',
-        },
-      ],
-    }
-  },
+  computed:{
+    categories() {
+      return this.$store.state.categories.categories;
+    },
+  }
 }
 </script>
 
