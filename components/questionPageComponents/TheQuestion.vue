@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>{{ data.title }}</h1>
-    <br />
-    <div class="QBody">
+    <h1 class="QTitle">{{ data.title }}</h1>
+    <div class="QBodyContainer">
       <add-vote />
-      <p>{{ data.body }}</p>
+      <p class="QBody">{{ data.body }}</p>
     </div>
   </div>
 </template>
 
 <script>
 import AddVote from './AddVote.vue'
+
 export default {
   name: 'TheQuestion',
   components: { AddVote },
@@ -31,8 +31,11 @@ export default {
 </script>
 
 <style lang="scss">
-.QBody {
-  display: grid;
-  grid-template-columns: 1fr 11fr;
+.QBodyContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  .QBody {
+  }
 }
 </style>
