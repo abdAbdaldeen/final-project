@@ -1,13 +1,20 @@
 <template>
-  <v-container>
-    <div class="catDes">
-      <v-img class="category" :src="data.src" :alt="data.alt"> </v-img>
-      <div>
-        <h3>{{ data.catName }}</h3>
-        <p>{{ data.description }}</p>
-      </div>
+  <div class="catDes">
+    <v-img
+      v-for="category in categories"
+      :key="category.gID"
+      class="category"
+      :src="category.imgUrl"
+      :alt="category.name"
+    >
+    </v-img>
+    <div>
+      <h3 v-for="category in categories" :key="category.gID">
+        {{ category.name }}
+      </h3>
+      <!-- <p>{{ data.description }}</p> -->
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -27,13 +34,20 @@ export default {
       },
     },
   },
+  computed: {
+    categories() {
+      return this.$store.state.categories.categories
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 .catDes {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 12fr;
+  font-size: 1.5rem;
+  align-items: center;
   .category {
     width: 5.5rem;
     height: 5.5rem;
