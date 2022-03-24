@@ -1,7 +1,9 @@
 <template>
   <div class="ABContainer">
-    <add-vote />
-    <p>{{ theAnswer }}</p>
+    <div class="VoteAnswerCon">
+      <add-vote />
+      <p>{{ theAnswer }}</p>
+    </div>
     <div class="DateUserInfo">
       <p>اجيب في {{ date }}</p>
       <div class="userInfo">
@@ -38,16 +40,19 @@ export default {
 
 <style lang="scss">
 .ABContainer {
-  display: grid;
-  grid-template-columns: 1fr 11fr 3fr;
-  column-gap: 1.5rem;
   box-shadow: $boxShadow;
   padding: 1rem 0.5rem;
   border-radius: 10px;
   margin: 1rem 0 2rem 0;
-
+  .VoteAnswerCon {
+    display: flex;
+    gap: 0.5rem;
+  }
   .DateUserInfo {
-    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 1rem;
   }
   .userInfo {
     display: flex;
@@ -55,12 +60,7 @@ export default {
     align-items: center;
   }
   @media (max-width: 768px) {
-    grid-template-columns: 1fr 8fr;
-    gap: 0;
     font-size: 0.8rem;
-    .DateUserInfo {
-      grid-column: 1 / span 5;
-    }
   }
 }
 </style>
