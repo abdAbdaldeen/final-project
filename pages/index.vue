@@ -2,7 +2,6 @@
   <div>
     <AskQuestionBox />
     <QuestionBox />
-    <CategoryDescription />
   </div>
 </template>
 

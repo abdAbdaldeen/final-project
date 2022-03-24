@@ -1,15 +1,9 @@
 <template>
   <div class="catDes">
-    <v-img
-      v-for="category in categories"
-      :key="category.gID"
-      class="category"
-      :src="category.imgUrl"
-      :alt="category.name"
-    >
+    <v-img class="category" :src="category.imgUrl" :alt="category.name">
     </v-img>
     <div>
-      <h3 v-for="category in categories" :key="category.gID">
+      <h3>
         {{ category.name }}
       </h3>
       <!-- <p>{{ data.description }}</p> -->
@@ -35,8 +29,9 @@ export default {
     },
   },
   computed: {
-    categories() {
-      return this.$store.state.categories.categories
+    category() {
+      console.log(this.$route.params.id)
+      return this.$store.state.categories.categories[this.$route.params.id]
     },
   },
 }
