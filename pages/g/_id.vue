@@ -1,6 +1,7 @@
 <template>
   <v-container class="CategoryPageContainer">
     <CategoryDescription />
+    <QuestionBox />
   </v-container>
 </template>
 
