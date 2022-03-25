@@ -1,13 +1,19 @@
 <template>
   <div class="categories">
     <div v-for="category in categories" :key="category.gID">
-      <nuxt-link :to="'/g/'+category.gID">
+      <nuxt-link :to="'/g/' + category.gID">
         <v-img
+          v-if="$route.params.id == category.gID"
+          class="Active"
+          :src="category.imgUrl"
+          :alt="category.name"
+        >
+        </v-img>
+        <v-img
+          v-else
           class="category"
           :src="category.imgUrl"
           :alt="category.name"
-          max-width="100px"
-          max-height="140px"
         >
         </v-img>
       </nuxt-link>
@@ -18,11 +24,12 @@
 <script>
 export default {
   name: 'CategoriesBar',
-  computed:{
+
+  computed: {
     categories() {
-      return this.$store.state.categories.categories;
+      return this.$store.state.categories.categories
     },
-  }
+  },
 }
 </script>
 
@@ -53,8 +60,19 @@ export default {
     height: 4rem;
     border-radius: 100%;
   }
+  .Active {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    box-shadow: $boxShadow;
+    border: 2px solid var(--v-primary-base);
+  }
   @media (max-width: 768px) {
     .category {
+      width: 3rem;
+      height: 3rem;
+    }
+    .Active {
       width: 3rem;
       height: 3rem;
     }
