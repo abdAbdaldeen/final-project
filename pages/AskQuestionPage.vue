@@ -15,7 +15,6 @@
       <v-autocomplete
         v-model="groupID"
         :items="categories"
-        item-text="name"
         label="اختر التصنيف"
         outlined
         dense
@@ -36,9 +35,15 @@ export default {
 
     loading: false,
   }),
-  computed:{
+  computed: {
     categories() {
-      return this.$store.state.categories.categories;
+      const objCat = this.$store.state.categories.categories
+
+      const arrayCat = Object.keys(objCat).map(function (key) {
+        return objCat[key]
+      })
+      console.log(arrayCat)
+      return arrayCat
     },
   },
   methods: {
@@ -50,7 +55,7 @@ export default {
           {
             title: this.title,
             body: this.body,
-            groupID: this.groupID.replace(/ /g,"-"),
+            groupID: this.groupID.replace(/ /g, '-'),
           },
           {
             headers: {
