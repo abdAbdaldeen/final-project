@@ -1,11 +1,11 @@
 <template>
   <v-container class="QBoxContainer">
-    <nuxt-link to="/q/السؤال">
+    <nuxt-link :to="'/q/'+data.qID">
       <div class="q-box">
         <h1 class="QBtitle">{{ data.title }}</h1>
-        <span class="QBvotes-num">{{ data.votesNum }}</span>
-        <p class="QBbody">{{ data.body }}</p>
-        <span class="QBcategory">{{ data.category }}</span>
+        <span class="QBvotes-num">{{ data.votesCount }}</span>
+        <p class="QBbody">{{ data.body.slice(0,150)+'...' }}</p>
+        <span class="QBcategory">{{ data.groupID }}</span>
       </div></nuxt-link
     >
   </v-container>
@@ -20,9 +20,9 @@ export default {
       default: () => {
         return {
           title: 'ما هو الفرق بين Methods و Computed في Vue',
-          votesNum: 0,
+          votesCount: 0,
           body: 'ما هو الفرق الرئيسي بين methods and a computed value في Vue.js? انها تبدو متشابهة وقابلة للتبديل',
-          category: 'vue',
+          groupID: 'vue',
         }
       },
     },
