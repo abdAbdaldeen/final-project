@@ -42,7 +42,7 @@ export default {
     align-items: start;
     padding: 1rem 2rem;
     border-radius: 10px;
-    color: var(--v-secondary-darken3);
+    //color: var(--v-secondary-darken3);
 
     .QBtitle {
       padding-bottom: 1rem;
