@@ -19,7 +19,7 @@ export default {}
   }
   .ask {
     margin-top: 1rem;
-    background-color: var(--v-qBoxBg-base);
+    //background-color: var(--v-qBoxBg-base);
     box-shadow: 3px 3px 5px var(--v-secondary-lighten5);
     max-width: 100%;
     border-radius: 10px;
