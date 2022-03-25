@@ -15,6 +15,7 @@
       <v-autocomplete
         v-model="groupID"
         :items="categories"
+        item-text="name"
         label="اختر التصنيف"
         outlined
         dense
@@ -42,7 +43,6 @@ export default {
       const arrayCat = Object.keys(objCat).map(function (key) {
         return objCat[key]
       })
-      console.log(arrayCat)
       return arrayCat
     },
   },
