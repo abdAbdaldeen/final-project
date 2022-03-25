@@ -16,6 +16,7 @@ export default {}
 .askQ-box {
   a {
     text-decoration: none;
+    color: var(--v-textColor-base);
   }
   .ask {
     margin-top: 1rem;
