@@ -4,7 +4,8 @@
       <header class="header">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <div class="container">
-          <h1 class="logo">مبرمجون</h1>
+          <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
+
           <form class="search-form">
             <input type="text" placeholder="ابحث عن سؤال" class="search" />
             <v-icon class="search-icon" color="primary">search</v-icon>
@@ -83,7 +84,9 @@
                       عرض الملف الشخصي
                     </v-btn>
                     <v-divider class="my-3"></v-divider>
-                    <v-btn depressed rounded text @click="logout"> تسجيل الخروج </v-btn>
+                    <v-btn depressed rounded text @click="logout">
+                      تسجيل الخروج
+                    </v-btn>
                   </div>
                 </v-list-item-content>
               </v-card>
@@ -107,10 +110,10 @@ export default {
     },
   },
   methods: {
-    logout(){
+    logout() {
       localStorage.removeItem('authToken')
       this.$store.commit('user/logout')
-    }
+    },
   },
 }
 </script>
@@ -119,6 +122,9 @@ export default {
 .header-container {
   box-shadow: 0 5px 10px rgba(122, 127, 134, 0.3);
   header {
+    a {
+      text-decoration: none;
+    }
     .container {
       display: flex;
       justify-content: space-between;
