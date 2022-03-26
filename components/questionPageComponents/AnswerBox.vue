@@ -1,11 +1,11 @@
 <template>
   <div class="ABContainer">
     <div class="VoteAnswerCon">
-      <add-vote />
-      <p>{{ theAnswer }}</p>
+      <add-vote :votesCount="data.votesCount" />
+      <p>{{ data.body }}</p>
     </div>
     <div class="DateUserInfo">
-      <p>اجيب في {{ date }}</p>
+      <p>اجيب في {{ data.createdAt }}</p>
       <div class="userInfo">
         <v-avatar
           class="avatar"
@@ -16,7 +16,7 @@
             >account_circle</v-icon
           >
         </v-avatar>
-        <p>{{ userName }}</p>
+        <p>{{ data.uName }}</p>
       </div>
     </div>
   </div>
@@ -27,14 +27,20 @@ import AddVote from './AddVote.vue'
 export default {
   name: 'AnswerBox',
   components: { AddVote },
-  data() {
-    return {
-      theAnswer:
-        'Computed Property:الاسم الأكثر ملاءمة لقيمة محسوبة هو خاصية محسوبة. في الواقع ،عندما يتم إنشاء مثيل لـ Vue ، يتم تحويل الخصائص المحسوبة إلى  Vue باستخدام برنامج getter  وأحيانًا جهاز ضبط. في الأساس ، يمكنك التفكير في القيمة المحسوبة كقيمة مشتقة سيتم تحديثها .Method:هي مجرد وظيفة مرتبطة بمثيل Vue. سيتم تقييمه فقط عندما تسميه صراحةً.مثل جميع وظائف جافا سكريبت ، فإنه يقبل المعلمات وسيتم إعادة تقييمها في كل مرة يتم استدعاؤها. الأساليب مفيدة في نفس المواقف ، أي وظيفة مفيدة.',
-      date: '4 / 2 / 2022',
-      userName: 'محمد احمد',
-    }
-  },
+  // data() {
+  //   return {
+  //     theAnswer:
+  //       'Computed Property:الاسم الأكثر ملاءمة لقيمة محسوبة هو خاصية محسوبة. في الواقع ،عندما يتم إنشاء مثيل لـ Vue ، يتم تحويل الخصائص المحسوبة إلى  Vue باستخدام برنامج getter  وأحيانًا جهاز ضبط. في الأساس ، يمكنك التفكير في القيمة المحسوبة كقيمة مشتقة سيتم تحديثها .Method:هي مجرد وظيفة مرتبطة بمثيل Vue. سيتم تقييمه فقط عندما تسميه صراحةً.مثل جميع وظائف جافا سكريبت ، فإنه يقبل المعلمات وسيتم إعادة تقييمها في كل مرة يتم استدعاؤها. الأساليب مفيدة في نفس المواقف ، أي وظيفة مفيدة.',
+  //     date: '4 / 2 / 2022',
+  //     userName: 'محمد احمد',
+  //   }
+  // },
+  props:{
+    data: {
+      type: Object,
+      require:true,
+    },
+  }
 }
 </script>
 
