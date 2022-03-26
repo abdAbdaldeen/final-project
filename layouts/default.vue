@@ -12,6 +12,14 @@ export default {
       this.$store.commit("categories/add", res);
     })
   },
+  created(){
+    // if (process.client) {
+    //   let authToken = localStorage.getItem('authToken')
+    //   if (authToken) {
+    //     this.$store.commit("categories/add", res)
+    //   }
+    // }
+  }
 };
 </script>
 <style>

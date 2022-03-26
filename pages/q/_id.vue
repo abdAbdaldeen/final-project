@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-container class="TheQuestionPageContainer">
-      <the-question :data="data"/>
+      <the-question/>
       <br />
       <div class="AnswersContainer">
         <h1>الإجابات</h1>
@@ -22,14 +22,19 @@ export default {
   components: { TheQuestion, AnswerBox },
   async asyncData({ $axios, store, error, redirect, route }) {
     return await $axios
-      .$get('questions/getOne/'+route.params.id)
+      .$get('questions/getOne/'+encodeURIComponent(route.params.id))
       .then((r) => {
-        return {data:r};
+        return store.commit("question/add", r);
       })
       .catch((e) => {
         console.error(e)
         // error({ statusCode: 404, message: 'Post not found' });
       })
+  },
+  computed: {
+    data() {
+      return this.$store.state.question.question
+    },
   },
 }
 </script>

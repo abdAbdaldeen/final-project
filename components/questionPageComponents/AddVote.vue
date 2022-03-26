@@ -1,18 +1,18 @@
 <template>
   <div class="addVoteComponent">
-    <v-icon class="voteIcon" large @click="votesNum++">arrow_drop_up</v-icon>
-    <p class="QPvotes-num">{{ votesNum }}</p>
-    <v-icon class="voteIcon" large @click="votesNum--">arrow_drop_down</v-icon>
+    <v-icon class="voteIcon" large>arrow_drop_up</v-icon>
+    <p class="QPvotes-num">{{ votesCount }}</p>
+    <v-icon class="voteIcon" large>arrow_drop_down</v-icon>
   </div>
 </template>
 
 <script>
 export default {
   name: 'AddVote',
-  data() {
-    return {
-      votesNum: 100,
-    }
+  props: {
+    votesCount: {
+      default: 0,
+    },
   },
 }
 </script>
