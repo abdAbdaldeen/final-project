@@ -26,7 +26,7 @@
 
           <v-btn
             v-if="!user.token"
-            href="/l/تسجيل-الدخول"
+            to="/l/تسجيل-الدخول"
             color="primary"
             class="btn"
             :small="$vuetify.breakpoint.xsOnly"
