@@ -46,13 +46,15 @@ export default {
           primary: '#4ECCA3',
           background: '#FCFCFC',
           qBoxBg:'#fff',
-          textColor:'#000'
+          textColor:'#000',
+          boxShadowColor:'#c1c1c1',
         },
         dark: {
           primary: '#4ECCA3',
           background: '#232931',
           qBoxBg:'#393E46',
-          textColor:'#fff'
+          textColor:'#fff',
+          boxShadowColor:'#686d76'
         },
       }
     },
