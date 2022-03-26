@@ -30,7 +30,6 @@ export default {
   },
   computed: {
     category() {
-      console.log(this.$route.params.id)
       return this.$store.state.categories.categories[this.$route.params.id]
     },
   },
