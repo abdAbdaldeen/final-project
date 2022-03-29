@@ -60,7 +60,7 @@ export default {
     padding: 1rem;
     max-width: 25rem;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
+    box-shadow: $boxShadow;
     .sign-in {
       padding: 1rem;
       text-align: center;
