@@ -3,10 +3,16 @@
     <v-row class="sign-in">
       <h1>إنشاء حساب</h1>
       <br />
-      <p>
+      <p class="text-center">
         أهلا بك في مبرمجون <br />انضم لمجتمع المبرمجين العرب و ابدأ مغامرتك
         الخاصة
       </p>
+      <v-col>
+        <v-alert
+          v-if="errorMsg"
+          type="error"
+        >{{errorMsg}}</v-alert>
+      </v-col>
       <v-col class="input">
         <v-text-field
           v-model="name"
@@ -85,7 +91,7 @@ export default {
       min: (v) => (v && v.length >= 8) || 'Min 8 characters',
       emailMatch: () => `The email and password you entered don't match`,
     },
-
+    errorMsg: "",
     loading: false,
   }),
   methods: {
@@ -103,8 +109,8 @@ export default {
           this.$store.commit('user/login', res.data)
           this.$router.push('/')
         } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error)
+          const msg = error && error.response && error.response.data && error.response.data.error
+          this.errorMsg = msg || "عذرا لقد حدث خطأ غير معروف، يرجى المحاولة مرة أخرى"
           this.loading = false
         }
       }

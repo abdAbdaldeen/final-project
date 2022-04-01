@@ -3,7 +3,12 @@
     <v-row class="sign-in">
       <h1>تسجيل الدخول</h1>
       <br />
-
+      <v-col>
+        <v-alert
+          v-if="errorMsg"
+          type="error"
+        >{{errorMsg}}</v-alert>
+      </v-col>
       <v-col class="input">
         <v-text-field
           v-model="email"
@@ -64,7 +69,7 @@ export default {
       min: (v) => (v && v.length >= 8) || 'Min 8 characters',
       emailMatch: () => `The email and password you entered don't match`,
     },
-
+    errorMsg:"",
     loading: false,
   }),
   methods: {
@@ -81,8 +86,8 @@ export default {
           this.$router.push('/')
           // this.loading = false;
         } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error)
+          const msg = error.response && error.response.data && error.response.data.error
+          this.errorMsg = msg || "عذرا لقد حدث خطأ غير معروف، يرجى المحاولة مرة أخرى"
           this.loading = false
         }
       }

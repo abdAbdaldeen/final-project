@@ -63,7 +63,7 @@ export default {
     box-shadow: $boxShadow;
     .sign-in {
       padding: 1rem;
-      text-align: center;
+      // text-align: center;
       display: flex;
       flex-direction: column;
       align-content: center;
