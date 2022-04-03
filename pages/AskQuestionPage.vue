@@ -3,18 +3,24 @@
     <v-form ref="form" class="AQform" @submit.prevent="submit">
       <v-text-field
         v-model="title"
+        :rules="titleRules"
+        required
         label=" عنوان السؤال"
         outlined
       ></v-text-field>
       <v-textarea
         v-model="body"
+        :rules="bodyRules"
+        required
         outlined
         name="input-7-4"
         label="نص السؤال"
       ></v-textarea>
       <v-autocomplete
         v-model="groupID"
+        :rules="groupRules"
         :items="categories"
+        required
         item-text="name"
         label="اختر التصنيف"
         outlined
@@ -29,10 +35,18 @@
 <script>
 export default {
   name: 'AskQuestionPage',
+
   data: () => ({
     title: '',
+    titleRules: [
+      (v) => !!v || 'العنوان مطلوب',
+      (v) =>
+        (v && v.length >= '20' && 'العنوان يجب ان يكون اقل من 20 حرف') || true,
+    ],
     body: '',
+    bodyRules: [(v) => !!v || 'السؤال مطلوب'],
     groupID: '',
+    groupRules: [(v) => !!v || 'التصنيف مطلوب'],
 
     loading: false,
   }),
@@ -48,28 +62,30 @@ export default {
   },
   methods: {
     async submit() {
-      try {
-        this.loading = true
-        const res = await this.$axios.post(
-          'questions/add',
-          {
-            title: this.title,
-            body: this.body,
-            groupID: this.groupID.replace(/ /g, '-'),
-          },
-          {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem('authToken')}`,
+      if (this.$refs.form.validate()) {
+        try {
+          this.loading = true
+          const res = await this.$axios.post(
+            'questions/add',
+            {
+              title: this.title,
+              body: this.body,
+              groupID: this.groupID.replace(/ /g, '-'),
             },
-          }
-        )
-        // eslint-disable-next-line no-console
-        console.log(res)
-        this.$router.push('/')
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error)
-        this.loading = false
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem('authToken')}`,
+              },
+            }
+          )
+          // eslint-disable-next-line no-console
+          console.log(res)
+          this.$router.push('/')
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(error)
+          this.loading = false
+        }
       }
     },
   },
