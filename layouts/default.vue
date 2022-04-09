@@ -2,6 +2,7 @@
   <v-app>
     <AppHeader />
     <Nuxt />
+    <SignInFormDialog />
   </v-app>
 </template>
 <script>

@@ -4,10 +4,7 @@
       <h1>تسجيل الدخول</h1>
       <br />
       <v-col>
-        <v-alert
-          v-if="errorMsg"
-          type="error"
-        >{{errorMsg}}</v-alert>
+        <v-alert v-if="errorMsg" type="error">{{ errorMsg }}</v-alert>
       </v-col>
       <v-col class="input">
         <v-text-field
@@ -36,9 +33,10 @@
         ></v-text-field>
       </v-col>
       <div class="buttons">
-        <nuxt-link to="/l/انشاء-حساب">
+        <nuxt-link v-if="!setIsLogInForm" to="/l/انشاء-حساب">
           <div>إنشاء حساب</div>
         </nuxt-link>
+        <v-btn v-else @click="setIsLogInForm(false)">إنشاء حساب</v-btn>
         <v-btn
           color="primary"
           type="submit"
@@ -54,6 +52,11 @@
 <script>
 export default {
   name: 'SignInForm',
+  props: {
+    setIsLogInForm: {
+      type: Function,
+    },
+  },
   data: () => ({
     valid: false,
 
@@ -69,7 +72,7 @@ export default {
       min: (v) => (v && v.length >= 8) || 'Min 8 characters',
       emailMatch: () => `The email and password you entered don't match`,
     },
-    errorMsg:"",
+    errorMsg: '',
     loading: false,
   }),
   methods: {
@@ -86,8 +89,10 @@ export default {
           this.$router.push('/')
           // this.loading = false;
         } catch (error) {
-          const msg = error.response && error.response.data && error.response.data.error
-          this.errorMsg = msg || "عذرا لقد حدث خطأ غير معروف، يرجى المحاولة مرة أخرى"
+          const msg =
+            error.response && error.response.data && error.response.data.error
+          this.errorMsg =
+            msg || 'عذرا لقد حدث خطأ غير معروف، يرجى المحاولة مرة أخرى'
           this.loading = false
         }
       }

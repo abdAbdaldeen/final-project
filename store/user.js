@@ -3,6 +3,7 @@ export const state = () => ({
   photoURL: '',
   displayName: '',
   token: '',
+  dialog:false,
 })
 
 export const mutations = {
@@ -17,5 +18,8 @@ export const mutations = {
     state.photoURL = ""
     state.displayName = ""
     state.token = ""
+  },
+  popupToggle(state){
+    state.dialog=!state.dialog;
   }
 }

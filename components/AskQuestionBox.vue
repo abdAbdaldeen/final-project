@@ -1,15 +1,27 @@
 <template>
   <v-container>
     <div class="askQ-box">
-      <nuxt-link to="/AskQuestionPage">
+      <nuxt-link v-if="user.token" to="/AskQuestionPage">
         <div class="ask">اطرح سؤال</div>
       </nuxt-link>
+      <div v-else class="ask" @click="popupToggle">اطرح سؤال</div>
     </div>
   </v-container>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
+  methods: {
+    popupToggle() {
+      this.$store.commit('user/popupToggle')
+    },
+  },
+}
 </script>
 
 <style lang="scss">
