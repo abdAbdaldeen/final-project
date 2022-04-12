@@ -35,45 +35,36 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.row {
-  flex-direction: column;
-}
-.FDialog {
-  flex: 1;
-  display: flex;
-  align-items: center;
+<style lang="scss" scope>
+.v-dialog {
+  max-width: 25rem;
+  border-radius: 10px !important;
 }
 .FPform {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  padding: 1rem;
-  max-width: 25rem;
-  border-radius: 10px;
-  box-shadow: $boxShadow;
-  .sign-in {
-    padding: 1rem;
-    // text-align: center;
-    display: flex;
+  border-radius: 20px;
+  .row {
     flex-direction: column;
     align-content: center;
-    justify-content: center;
     align-items: center;
-  }
-  #input {
-    padding: 0.2rem;
-    max-width: 20rem;
-  }
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 7rem;
-  }
-  p {
-    color: var(--v-primary-base);
+    margin: auto;
+    padding: 2rem;
+    max-width: 25rem;
+
+    p {
+      color: var(--v-primary-base);
+    }
+    #input {
+      padding: 0.2rem;
+      max-width: 20rem;
+    }
+    .buttons {
+      width: 100%;
+      padding: 0.7rem;
+      display: flex;
+      max-width: 25rem;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 </style>

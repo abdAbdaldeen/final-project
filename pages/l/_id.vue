@@ -69,19 +69,22 @@ export default {
       align-content: center;
       justify-content: center;
       align-items: center;
-    }
-    #input {
-      padding: 0.2rem;
-      max-width: 20rem;
-    }
-    .buttons {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 7rem;
-    }
-    p {
-      color: var(--v-primary-base);
+
+      #input {
+        padding: 0.2rem;
+        max-width: 20rem;
+      }
+      .buttons {
+        width: 100%;
+        padding: 0.2rem;
+        display: flex;
+        max-width: 20rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+      p {
+        color: var(--v-primary-base);
+      }
     }
   }
 }
