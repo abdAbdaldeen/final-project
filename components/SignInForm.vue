@@ -36,7 +36,9 @@
         <nuxt-link v-if="!setIsLogInForm" to="/l/انشاء-حساب">
           <div>إنشاء حساب</div>
         </nuxt-link>
-        <v-btn v-else @click="setIsLogInForm(false)">إنشاء حساب</v-btn>
+        <v-btn v-else outlined color="primary" @click="setIsLogInForm(false)"
+          >إنشاء حساب</v-btn
+        >
         <v-btn
           color="primary"
           type="submit"

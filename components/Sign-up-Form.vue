@@ -52,7 +52,9 @@
         <nuxt-link v-if="!setIsLogInForm" to="/l/تسجيل-الدخول">
           <div>لديك حساب؟</div>
         </nuxt-link>
-        <v-btn v-else @click="setIsLogInForm(true)">تسجيل الدخول</v-btn>
+        <v-btn v-else outlined color="primary" @click="setIsLogInForm(true)"
+          >تسجيل الدخول</v-btn
+        >
 
         <v-btn
           color="primary"
