@@ -113,7 +113,12 @@ export default {
           })
           localStorage.setItem('authToken', res.data.token)
           this.$store.commit('user/login', res.data)
-          this.$router.push('/')
+          this.loading = false;
+          if (!this.setIsLogInForm) {
+            this.$router.push('/')
+          }else{
+            this.$store.commit('user/popupToggle')
+          }
         } catch (error) {
           const msg =
             error &&
