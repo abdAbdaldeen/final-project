@@ -54,7 +54,7 @@ export default {
           background: '#232931',
           qBoxBg:'#393E46',
           textColor:'#fff',
-          boxShadowColor:'#686d76'
+          boxShadowColor:'#000'
         },
       }
     },
