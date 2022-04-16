@@ -2,7 +2,7 @@
   <div class="ABContainer">
     <div class="VoteAnswerCon">
       <add-vote :votesCount="data.votesCount" />
-      <p>{{ data.body }}</p>
+      <p class="aBody" v-html="data.body"></p>
     </div>
     <div class="DateUserInfo">
       <p>اجيب في {{ data.createdAt }}</p>
@@ -47,14 +47,19 @@ export default {
 <style lang="scss">
 .ABContainer {
   box-shadow: $boxShadow;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   border-radius: 10px;
   margin: 1rem 0 2rem 0;
   .VoteAnswerCon {
     display: flex;
     gap: 0.5rem;
+    flex-direction: row-reverse;
+    .aBody{
+      flex: auto;
+    }
   }
   .DateUserInfo {
+    direction: rtl;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
