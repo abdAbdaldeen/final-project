@@ -2,7 +2,12 @@
   <div class="TheQuestion">
     <h1 class="QTitle" dir="auto">{{ data.title }}</h1>
     <div class="QBodyContainer">
-      <add-vote :votesCount="data.votesCount" />
+      <add-vote
+        :votesCount="data.votesCount"
+        :docID="$route.params.id"
+        :vote="data.qvote"
+        collection="questions"
+      />
       <p class="QBody" v-html="data.body"></p>
     </div>
   </div>
@@ -23,13 +28,13 @@ export default {
 </script>
 
 <style lang="scss">
-.TheQuestion{
+.TheQuestion {
   .QBodyContainer {
     display: flex;
     gap: 0.5rem;
     flex-direction: row-reverse;
   }
-  .QBody{
+  .QBody {
     flex: auto;
   }
 }

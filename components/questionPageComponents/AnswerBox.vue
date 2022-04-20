@@ -1,7 +1,12 @@
 <template>
   <div class="ABContainer">
     <div class="VoteAnswerCon">
-      <add-vote :votesCount="data.votesCount" />
+      <add-vote
+        :votesCount="data.votesCount"
+        :docID="data.aID"
+        :vote="data.avote"
+        collection="answers"
+      />
       <p class="aBody" v-html="data.body"></p>
     </div>
     <div class="DateUserInfo">
@@ -35,12 +40,12 @@ export default {
   //     userName: 'محمد احمد',
   //   }
   // },
-  props:{
+  props: {
     data: {
       type: Object,
-      require:true,
+      require: true,
     },
-  }
+  },
 }
 </script>
 
@@ -54,7 +59,7 @@ export default {
     display: flex;
     gap: 0.5rem;
     flex-direction: row-reverse;
-    .aBody{
+    .aBody {
       flex: auto;
     }
   }

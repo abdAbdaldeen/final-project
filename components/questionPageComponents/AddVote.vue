@@ -1,8 +1,12 @@
 <template>
   <div class="addVoteComponent">
-    <v-icon class="voteIcon" large>arrow_drop_up</v-icon>
-    <p class="QPvotes-num">{{ votesCount }}</p>
-    <v-icon class="voteIcon" large>arrow_drop_down</v-icon>
+    <v-icon @click="addVote(1)" :class="{ active: activeVote == 1 }" large
+      >arrow_drop_up</v-icon
+    >
+    <p class="QPvotes-num">{{ votesCountState }}</p>
+    <v-icon @click="addVote(-1)" :class="{ active: activeVote == -1 }" large
+      >arrow_drop_down</v-icon
+    >
   </div>
 </template>
 
@@ -12,6 +16,45 @@ export default {
   props: {
     votesCount: {
       default: 0,
+    },
+    docID: {},
+    vote: {
+      default: 0,
+    },
+    collection: {
+      require: true,
+    },
+  },
+  data() {
+    return {
+      activeVote: this.vote,
+      votesCountState: this.votesCount,
+      loading: false,
+    }
+  },
+  methods: {
+    async addVote(vote) {
+      this.loading = true
+      this.votesCountState += vote
+      !this.activeVote ? (this.activeVote = +vote) : (this.activeVote = 0)
+      await this.$axios
+        .post(
+          'votes/vote',
+          {
+            docID: this.docID,
+            vote,
+            collection: this.collection,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('authToken')}`,
+            },
+          }
+        )
+        .catch((e) => {
+          console.error(e)
+        })
+      this.loading = false
     },
   },
 }
@@ -23,7 +66,8 @@ export default {
   flex-direction: column;
   text-align: center;
   opacity: 0.7;
-  .voteIcon {
+  .active {
+    color: red;
   }
   .QPvotes-num {
     margin: 0;
