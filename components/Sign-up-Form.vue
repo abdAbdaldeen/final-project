@@ -113,6 +113,11 @@ export default {
           })
           localStorage.setItem('authToken', res.data.token)
           this.$store.commit('user/login', res.data)
+          this.$cookies.set('authToken', res.data.token, {
+            path: '/',
+            maxAge: 60 * 60
+          })
+          
           this.loading = false;
           if (!this.setIsLogInForm) {
             this.$router.push('/')

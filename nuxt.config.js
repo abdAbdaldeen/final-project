@@ -63,7 +63,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "vue2-editor/nuxt"
+    "vue2-editor/nuxt",
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -74,4 +75,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  router: {
+    middleware: 'checkToken'
+  }
 }

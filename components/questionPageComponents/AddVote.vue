@@ -34,6 +34,9 @@ export default {
   },
   methods: {
     async addVote(vote) {
+      if (vote == this.activeVote) {
+        return;
+      }
       this.loading = true
       this.votesCountState += vote
       !this.activeVote ? (this.activeVote = +vote) : (this.activeVote = 0)
@@ -67,7 +70,7 @@ export default {
   text-align: center;
   opacity: 0.7;
   .active {
-    color: red;
+    color: var(--v-primary-base);
   }
   .QPvotes-num {
     margin: 0;
