@@ -32,8 +32,14 @@
         dense
         clearable
       ></v-autocomplete>
-      <v-btn class="btn" type="submit" color="primary"> نشر </v-btn>
+      <v-btn class="btn" type="submit" color="primary" :loading="loading" :disabled="loading"> نشر </v-btn>
     </v-form>
+    <!-- ============== -->
+    <v-dialog v-model="error" class="FDialog">
+      <div>
+        {{errorMsg}}
+      </div>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -55,6 +61,8 @@ export default {
     groupID: '',
     groupRules: [(v) => !!v || 'التصنيف مطلوب'],
 
+    error: false,
+    errorMsg:"",
     loading: false,
   }),
   computed: {
@@ -69,7 +77,7 @@ export default {
   },
   methods: {
     async submit() {
-      if (this.$refs.form.validate()) {
+      if (this.$refs.form.validate() && this.body) {
         try {
           this.loading = true
           const res = await this.$axios.post(
@@ -86,11 +94,21 @@ export default {
             }
           )
           // eslint-disable-next-line no-console
-          console.log(res)
-          this.$router.push('/')
+          this.$router.push('/q/'+res.data.qID)
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error(error)
+          if (error.response) {
+            if (error.response.status == 403) {
+              // not logged in
+              this.$store.commit('user/popupToggle')
+            }
+            if (error.response.status == 405) {
+              // عملاتك لا تكفي لاضافة سؤال
+              this.error = true
+              this.errorMsg = error.response.data.error
+            }
+          }
           this.loading = false
         }
       }
