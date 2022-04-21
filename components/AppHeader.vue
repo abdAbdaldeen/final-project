@@ -113,6 +113,8 @@ export default {
     logout() {
       localStorage.removeItem('authToken')
       this.$store.commit('user/logout')
+      this.$cookies.remove('authToken')
+      window.location.href = "/";
     },
   },
 }
