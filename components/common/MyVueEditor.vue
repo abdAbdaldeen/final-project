@@ -1,35 +1,10 @@
 <template>
   <client-only>
-    <VueEditor v-model="inputV" :editorToolbar="customToolbar" />
+    <slot/>
   </client-only>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      customToolbar: [
-      [{ header: [false, 2, 3, 4, 5, 6] }],
-      ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-      [{ align: '' }, { align: 'center' }, { align: 'right' }],
-      ['code-block'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      // [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-      ['link', 'image'],
-      ['clean'], // remove formatting button
-    ],
-    }
-  },
-  computed: {
-    inputV: {
-      get() {
-        return this.$store.state.primary.inputV
-      },
-      set(value) {
-        this.$store.commit('primary/add',{key:'inputV',value})
-      },
-    },
-  },
 }
 </script>
 <style lang="scss">

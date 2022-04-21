@@ -20,9 +20,11 @@
           :rules="answerRules"
           required
         ></v-textarea> -->
-        <my-vue-editor/>
+        <my-vue-editor>
+          <VueEditor v-model="answer" :editorToolbar="$store.state.customToolbar"/>
+        </my-vue-editor>
         <div class="text-right">
-          <v-btn class="AddAnswerBtn" type="submit" color="primary">
+          <v-btn class="AddAnswerBtn" type="submit" color="primary" :loading="loading" :disabled="loading">
             نشر
           </v-btn>
         </div>
@@ -58,6 +60,7 @@ export default {
 
   data: () => ({
     answerRules: [(v) => !!v || 'الاجابة مطلوبة'],
+    answer: '',
 
     loading: false,
   }),
@@ -68,7 +71,11 @@ export default {
   },
   methods: {
     async submit() {
-      const answer = this.$store.state.primary.inputV
+      if (!this.$store.state.user.token) {
+        this.$store.commit('user/popupToggle')
+        return;
+      }
+      const answer = this.answer
       if (answer) {
         try {
           this.loading = true
@@ -87,14 +94,14 @@ export default {
               },
             }
           )
+          this.answer = ""
+          this.$store.commit('question/addAnswer', res.data)
           // window.location.href = window.location.pathname + `#test123`
-          window.location.reload(true)
-          // eslint-disable-next-line no-console
-          console.log(res)
-          // this.loading = false;
+          this.loading = false;
         } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error)
+          if (error.response && error.response.status == 403) {
+            this.$store.commit('user/popupToggle')
+          }
           this.loading = false
         }
       }

@@ -8,14 +8,19 @@
         label=" عنوان السؤال"
         outlined
       ></v-text-field>
-      <v-textarea
+      <!-- <v-textarea
         v-model="body"
         :rules="bodyRules"
         required
         outlined
         name="input-7-4"
         label="نص السؤال"
-      ></v-textarea>
+      ></v-textarea> -->
+      <div class="my-vue-editor">
+        <my-vue-editor>
+          <VueEditor v-model="body" :editorToolbar="$store.state.customToolbar"/>
+        </my-vue-editor>
+      </div>
       <v-autocomplete
         v-model="groupID"
         :rules="groupRules"
@@ -33,7 +38,9 @@
 </template>
 
 <script>
+import MyVueEditor from '~/components/common/MyVueEditor.vue'
 export default {
+  components: { MyVueEditor },
   name: 'AskQuestionPage',
 
   data: () => ({
@@ -107,6 +114,10 @@ export default {
   .btn {
     width: 7rem;
     align-self: center;
+  }
+  .my-vue-editor{
+    direction: ltr;
+    text-align: left;
   }
 }
 </style>
