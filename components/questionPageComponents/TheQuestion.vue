@@ -37,5 +37,9 @@ export default {
   .QBody {
     flex: auto;
   }
+  .QTitle{
+    text-align: initial;
+    padding: 1rem 0px;
+  }
 }
 </style>

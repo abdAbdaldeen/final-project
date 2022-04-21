@@ -4,7 +4,7 @@
       <the-question />
       <br />
       <div v-if="data.answers" class="AnswersContainer">
-        <h2 id="test123">الإجابات</h2>
+        <h2>الإجابات</h2>
         <answer-box
           v-for="answer in data.answers"
           :key="answer.aID"
