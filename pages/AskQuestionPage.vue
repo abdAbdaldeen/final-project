@@ -107,6 +107,11 @@ export default {
               // عملاتك لا تكفي لاضافة سؤال
               this.error = true
               this.errorMsg = error.response.data.error
+            } else if (error.response.status == 409) {
+              // هذا السؤال موجود من قبل
+              this.error = true
+              this.errorMsg = error.response.data.error
+              // let qUrl = `/q/${error.response.data.id}`
             }
           }
           this.loading = false
