@@ -18,10 +18,14 @@
       ></v-textarea> -->
       <div class="my-vue-editor">
         <my-vue-editor>
-          <VueEditor v-model="body" :editorToolbar="$store.state.customToolbar"/>
+          <VueEditor
+            v-model="body"
+            :editorToolbar="$store.state.customToolbar"
+          />
         </my-vue-editor>
       </div>
       <v-autocomplete
+        class="category"
         v-model="groupID"
         :rules="groupRules"
         :items="categories"
@@ -32,13 +36,35 @@
         dense
         clearable
       ></v-autocomplete>
-      <v-btn class="btn" type="submit" color="primary" :loading="loading" :disabled="loading"> نشر </v-btn>
+      <v-btn
+        class="btn"
+        type="submit"
+        color="primary"
+        :loading="loading"
+        :disabled="loading"
+      >
+        نشر
+      </v-btn>
     </v-form>
     <!-- ============== -->
-    <v-dialog v-model="error" class="FDialog">
-      <div>
-        {{errorMsg}}
-      </div>
+    <v-dialog v-model="error" persistent>
+      <v-card class="errorCard">
+        <h2>عُذراً</h2>
+        <p class="msg">{{ errorMsg }}</p>
+        <p>{{ errorTip }}</p>
+        <v-btn
+          v-if="btnText == 'إغلاق'"
+          :to="qUrl"
+          color="primary"
+          class="errBtn"
+          @click="error = false"
+        >
+          {{ goToQuestion }}
+        </v-btn>
+        <v-btn color="primary" class="errBtn" @click="error = false">
+          {{ btnText }}
+        </v-btn>
+      </v-card>
     </v-dialog>
   </v-container>
 </template>
@@ -50,6 +76,7 @@ export default {
   name: 'AskQuestionPage',
 
   data: () => ({
+    dialog: false,
     title: '',
     titleRules: [
       (v) => !!v || 'العنوان مطلوب',
@@ -62,7 +89,11 @@ export default {
     groupRules: [(v) => !!v || 'التصنيف مطلوب'],
 
     error: false,
-    errorMsg:"",
+    errorMsg: '',
+    errorTip: '',
+    btnText: '',
+    goToQuestion: '',
+    qUrl: '',
     loading: false,
   }),
   computed: {
@@ -94,7 +125,7 @@ export default {
             }
           )
           // eslint-disable-next-line no-console
-          this.$router.push('/q/'+res.data.qID)
+          this.$router.push('/q/' + res.data.qID)
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error(error)
@@ -107,11 +138,19 @@ export default {
               // عملاتك لا تكفي لاضافة سؤال
               this.error = true
               this.errorMsg = error.response.data.error
+              this.errorTip =
+                'لتقوم بجمع العملات عليك الاجابة على بعض الاسئلة بطريقة صحيحة والحصول على تصويتات ايجابية'
+              this.btnText = 'حسناً'
+              this.goToQuestion = ''
+              this.qUrl = ''
             } else if (error.response.status == 409) {
               // هذا السؤال موجود من قبل
               this.error = true
               this.errorMsg = error.response.data.error
-              // let qUrl = `/q/${error.response.data.id}`
+              this.errorTip = ''
+              this.btnText = 'إغلاق'
+              this.goToQuestion = 'الذهاب للسؤال'
+              this.qUrl = `/q/${error.response.data.id}`
             }
           }
           this.loading = false
@@ -138,9 +177,28 @@ export default {
     width: 7rem;
     align-self: center;
   }
-  .my-vue-editor{
+  .my-vue-editor {
     direction: ltr;
     text-align: left;
+  }
+  .category {
+    padding-top: 2rem;
+  }
+}
+.v-dialog {
+  .v-card {
+    padding: 1rem;
+    text-align: center;
+
+    .msg {
+      color: var(--v-primary-base);
+      padding: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 0;
+    }
+    .errBtn {
+      // color: var(--v-primary-base);
+    }
   }
 }
 </style>
