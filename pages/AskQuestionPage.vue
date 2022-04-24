@@ -53,17 +53,33 @@
         <p class="msg">{{ errorMsg }}</p>
         <p>{{ errorTip }}</p>
         <v-btn
-          v-if="btnText == 'إغلاق'"
-          :to="qUrl"
+          v-if="btnText == 'حسناً'"
           color="primary"
           class="errBtn"
           @click="error = false"
         >
-          {{ goToQuestion }}
-        </v-btn>
-        <v-btn color="primary" class="errBtn" @click="error = false">
           {{ btnText }}
         </v-btn>
+        <div class="btnContainer">
+          <v-btn
+            v-if="btnText == 'إغلاق'"
+            :to="qUrl"
+            color="primary"
+            class="errBtn"
+            @click="error = false"
+          >
+            {{ goToQuestion }}
+          </v-btn>
+          <v-btn
+            v-if="btnText == 'إغلاق'"
+            outlined
+            color="primary"
+            class="errBtn"
+            @click="error = false"
+          >
+            {{ btnText }}
+          </v-btn>
+        </div>
       </v-card>
     </v-dialog>
   </v-container>
@@ -195,6 +211,11 @@ export default {
       padding: 1rem;
       font-size: 1.3rem;
       margin-bottom: 0;
+    }
+    .btnContainer {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
     .errBtn {
       // color: var(--v-primary-base);
