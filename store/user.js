@@ -3,6 +3,7 @@ export const state = () => ({
   photoURL: '',
   displayName: '',
   token: '',
+  coins:'',
   dialog:false,
 })
 

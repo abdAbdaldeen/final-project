@@ -79,6 +79,15 @@
                     <p class="text-caption mt-1">
                       {{ user.email }}
                     </p>
+                    <div class="coinContainer">
+                      <v-img
+                        class="coinImg"
+                        src="/money.png"
+                        width="30"
+                        height="30"
+                      ></v-img>
+                      <h4>{{ user.coins }}</h4>
+                    </div>
                     <v-divider class="my-3"></v-divider>
                     <v-btn class="btn" depressed rounded text>
                       عرض الملف الشخصي
@@ -104,6 +113,9 @@
 <script>
 export default {
   name: 'AppHeader',
+  // data: () => ({
+  //   coins: 0,
+  // }),
   computed: {
     user() {
       return this.$store.state.user
@@ -114,7 +126,7 @@ export default {
       localStorage.removeItem('authToken')
       this.$store.commit('user/logout')
       this.$cookies.remove('authToken')
-      window.location.href = "/";
+      window.location.href = '/'
     },
   },
 }
@@ -193,6 +205,18 @@ export default {
         font-size: 10px !important;
       }
     }
+  }
+}
+.coinContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: #efae2e;
+  .coinImg {
+    flex-grow: 0;
+    width: 30px;
+    height: 30px;
   }
 }
 </style>
