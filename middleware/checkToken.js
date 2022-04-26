@@ -13,6 +13,7 @@ export default async function ({ store, app, $axios }) {
           email: res.email,
           displayName: res.displayName,
           photoURL: res.photoURL,
+          coins: res.coins,
         }
         store.commit('user/login', data)
       })
