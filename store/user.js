@@ -9,10 +9,9 @@ export const state = () => ({
 
 export const mutations = {
   login(state, data) {
-    state.email = data.email
-    state.photoURL = data.photoURL
-    state.displayName = data.displayName
-    state.token = data.token
+    Object.entries(data).forEach(
+      ([key, value]) => (state[key] = value)
+    );
   },
   logout(state) {
     state.email = ""
