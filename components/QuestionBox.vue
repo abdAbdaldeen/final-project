@@ -1,11 +1,12 @@
 <template>
   <v-container class="QBoxContainer">
-    <nuxt-link :to="'/q/'+data.qID">
+    <nuxt-link :to="'/q/' + data.qID">
       <div class="q-box">
         <h1 class="QBtitle">{{ data.title }}</h1>
-        <span class="QBvotes-num">{{ data.votesCount }}</span>
-        <p class="QBbody">{{ data.body.slice(0,150)+'...' }}</p>
+        <span class="QBvotes-num">{{ data.votesCount }} صوت</span>
+        <p class="QBbody">{{ data.body.slice(0, 150) + '...' }}</p>
         <span class="QBcategory">{{ data.groupID }}</span>
+        <p class="QBdate">تم النشر في {{ data.createdAt }}</p>
       </div></nuxt-link
     >
   </v-container>
@@ -75,6 +76,11 @@ export default {
       justify-self: flex-start;
       padding: 0.5rem 1rem;
       text-align: center;
+    }
+    .QBdate {
+      grid-row: 3;
+      grid-column: 6;
+      justify-self: flex-end;
     }
     @media (max-width: 768px) {
       padding: 0.5rem 1rem;

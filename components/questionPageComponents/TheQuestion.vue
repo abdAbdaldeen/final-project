@@ -10,6 +10,7 @@
       />
       <p class="QBody" v-html="data.body"></p>
     </div>
+    <p>تم النشر في {{ data.createdAt }}</p>
   </div>
 </template>
 
@@ -37,7 +38,7 @@ export default {
   .QBody {
     flex: auto;
   }
-  .QTitle{
+  .QTitle {
     text-align: initial;
     padding: 1rem 0px;
   }
