@@ -1,19 +1,21 @@
 <template>
   <v-container class="CategoryPageContainer">
     <!-- <CategoryDescription /> -->
-    <QuestionBox v-for="question in questions" :key="question.qID" :data="question" />
+    <QuestionList />
   </v-container>
 </template>
 
 <script>
+import QuestionList from '~/components/common/QuestionList.vue'
 export default {
-  async asyncData({ $axios, store, error, redirect,route }) {
+  components: { QuestionList },
+  async asyncData({ $axios, store, error, redirect, route }) {
     return await $axios
-      .$get('questions/getFirst/'+route.params.id)
+      .$get('questions/getFirst/' + route.params.id)
       .then((r) => {
         const questions = r.questions
         const lastKey = r.lastKey
-        return { questions, lastKey }
+        store.commit('questions/add', { questions, lastKey })
       })
       .catch((e) => {
         console.error(e)
