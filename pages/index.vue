@@ -1,12 +1,14 @@
 <template>
   <div>
     <AskQuestionBox />
-    <QuestionBox v-for="question in questions" :key="question.qID" :data="question" />
+    <QuestionList />
   </div>
 </template>
 
 <script>
+import QuestionList from '~/components/common/QuestionList.vue'
 export default {
+  components: { QuestionList },
   name: 'IndexPage',
   async asyncData({ $axios, store, error, redirect }) {
     return await $axios
@@ -14,7 +16,7 @@ export default {
       .then((r) => {
         const questions = r.questions
         const lastKey = r.lastKey
-        return { questions, lastKey }
+        store.commit('questions/add', { questions, lastKey })
       })
       .catch((e) => {
         console.error(e)

@@ -68,7 +68,10 @@ export default {
     .row3 {
       display: flex;
       justify-content: space-between;
-
+      align-items: flex-end;
+      p {
+        margin: 0;
+      }
       .QBcategory {
         // border: 2px solid var(--v-primary-base);
         box-shadow: 0px 0px 5px var(--v-secondary-lighten5);
