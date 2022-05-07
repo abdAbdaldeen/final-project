@@ -12,7 +12,9 @@
           </form>
 
           <v-icon
+           
             v-if="$vuetify.theme.dark == true"
+            class="mode-icon"
             @click="$vuetify.theme.dark = !$vuetify.theme.dark"
           >
             light_mode
@@ -32,7 +34,7 @@
             :small="$vuetify.breakpoint.xsOnly"
             >تسجيل الدخول</v-btn
           >
-          <v-row v-else justify="center">
+          <v-row v-else justify="center" class="avatarCon" >
             <v-menu bottom min-width="200px" rounded offset-y>
               <template #activator="{ on }">
                 <v-btn icon large v-on="on">
@@ -136,13 +138,13 @@ export default {
 <style lang="scss" scoped>
 .header-container {
   box-shadow: 0 5px 10px rgba(122, 127, 134, 0.3);
+  
   header {
     a {
       text-decoration: none;
     }
     .container {
-      display: grid;
-      grid-template-columns: 2fr 11fr 1fr 1fr;
+      display: flex;
       justify-content: space-between;
       align-items: center;
 
@@ -150,11 +152,12 @@ export default {
         word-break: normal;
         font-size: 2rem;
         color: var(--v-primary-base);
+        padding-left: 1rem;
       }
 
       .search-form {
         display: flex;
-        //width: 100rem;
+        width: 100%;
         max-width: 100rem;
         border: 2px solid rgba(178, 184, 192, 0.3);
         border-radius: 10px;
@@ -183,9 +186,19 @@ export default {
           outline: none;
         }
       }
+      .btn{
+        margin-right: 1rem;
+      }
+      .mode-icon{
+        margin-right: 1rem;
+      }
+      .avatarCon{
+         margin-right: 1rem;
+      }
       .cardIcon {
         vertical-align: middle;
       }
+      
     }
     @media (max-width: 768px) {
       .container {
