@@ -30,7 +30,7 @@
             v-if="!user.token"
             to="/l/تسجيل-الدخول"
             color="primary"
-            class="btn"
+            class="SNbtn"
             :small="$vuetify.breakpoint.xsOnly"
             >تسجيل الدخول</v-btn
           >
@@ -157,6 +157,7 @@ export default {
 
       .search-form {
         display: flex;
+        justify-content: flex-start;
         width: 100%;
         max-width: 100rem;
         border: 2px solid rgba(178, 184, 192, 0.3);
@@ -167,18 +168,15 @@ export default {
         }
 
         .search-icon {
-          justify-content: flex-end;
+          // justify-content: flex-end;
           font-size: 1.7rem;
           margin-left: 0.5rem;
         }
 
         .search {
           width: 100%;
-          max-width: 50rem;
-          display: block;
-          margin: auto;
           font-size: 14px;
-          padding: 8px 7px;
+          padding: 8px 10px;
           background-color: transparent;
         }
 
@@ -186,7 +184,7 @@ export default {
           outline: none;
         }
       }
-      .btn{
+      .SNbtn{
         margin-right: 1rem;
       }
       .mode-icon{
@@ -220,7 +218,8 @@ export default {
       }
     }
   }
-  .coinContainer {
+  
+}.coinContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -232,5 +231,4 @@ export default {
       height: 30px;
     }
   }
-}
 </style>
