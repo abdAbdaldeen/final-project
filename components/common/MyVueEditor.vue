@@ -72,6 +72,7 @@ export default {
 
 .ql-align-right {
   text-align: right;
+  direction: rtl;
 }
 .ql-align-center {
   text-align: center;
