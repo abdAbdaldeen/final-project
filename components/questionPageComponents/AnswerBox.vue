@@ -1,12 +1,17 @@
 <template>
   <div class="ABContainer">
     <div class="VoteAnswerCon">
-      <add-vote
-        :votesCount="data.votesCount"
-        :docID="data.aID"
-        :vote="data.avote"
-        collection="answers"
-      />
+      <div class="operations">
+        <add-vote
+          :votesCount="data.votesCount"
+          :docID="data.aID"
+          :vote="data.avote"
+          collection="answers"
+        />
+        <v-icon class="material-symbols-outlined" title="إبلاغ" outline
+          >report</v-icon
+        >
+      </div>
       <p class="aBody" v-html="data.body"></p>
     </div>
     <div class="DateUserInfo">
@@ -59,6 +64,13 @@ export default {
     display: flex;
     gap: 0.5rem;
     flex-direction: row-reverse;
+    .operations {
+      display: flex;
+      flex-direction: column;
+    }
+    // .material-symbols-outlined {
+    //   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    // }
     .aBody {
       flex: auto;
     }
