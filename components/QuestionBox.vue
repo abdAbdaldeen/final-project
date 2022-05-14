@@ -6,7 +6,7 @@
           <h1 class="QBtitle">{{ data.title }}</h1>
           <p class="QBvotes-num">{{ data.votesCount + '   صوت' }}</p>
         </div>
-        <p class="QBbody">{{ data.body.slice(0, 150) + '...' }}</p>
+        <p class="QBbody">{{ data.description }}</p>
         <div class="row3">
           <p class="QBcategory">{{ data.groupID }}</p>
           <p class="QBdate">تم النشر في {{ data.createdAt }}</p>
