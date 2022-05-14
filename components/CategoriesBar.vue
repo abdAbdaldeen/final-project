@@ -7,6 +7,8 @@
           class="Active"
           :src="category.imgUrl"
           :alt="category.name"
+          :title="category.name"
+          
         >
         </v-img>
         <v-img
@@ -14,6 +16,8 @@
           class="category"
           :src="category.imgUrl"
           :alt="category.name"
+          :title="category.name"
+          
         >
         </v-img>
       </nuxt-link>
