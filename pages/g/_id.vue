@@ -1,8 +1,8 @@
 <template>
-  <v-container class="CategoryPageContainer">
+  <!-- <v-container class="CategoryPageContainer"> -->
     <!-- <CategoryDescription /> -->
     <QuestionList />
-  </v-container>
+  <!-- </v-container> -->
 </template>
 
 <script>
