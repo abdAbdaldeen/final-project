@@ -22,7 +22,12 @@
           color="primary"
           :size="$vuetify.breakpoint.xsOnly ? '30' : '40'"
         >
-          <v-icon :small="$vuetify.breakpoint.xsOnly" color="background"
+          <img
+            v-if="data.uImg"
+            :src="data.uImg"
+            :alt="data.displayName"
+          />
+          <v-icon v-else :small="$vuetify.breakpoint.xsOnly" color="background"
             >account_circle</v-icon
           >
         </v-avatar>
