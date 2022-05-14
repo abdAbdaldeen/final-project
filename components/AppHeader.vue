@@ -220,7 +220,8 @@ export default {
       }
     }
   }
-  .coinContainer {
+ 
+} .coinContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -232,5 +233,4 @@ export default {
       height: 30px;
     }
   }
-}
 </style>
