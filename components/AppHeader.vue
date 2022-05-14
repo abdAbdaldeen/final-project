@@ -34,7 +34,7 @@
             >تسجيل الدخول</v-btn
           >
           <div v-else class="avatarCon">
-            <v-row justify="center">
+            
               <v-menu bottom min-width="200px" rounded offset-y>
                 <template #activator="{ on }">
                   <v-btn icon large v-on="on">
@@ -102,7 +102,7 @@
                   </v-list-item-content>
                 </v-card>
               </v-menu>
-            </v-row>
+            
           </div>
         </div>
       </header>
