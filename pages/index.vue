@@ -12,7 +12,7 @@ export default {
   name: 'IndexPage',
   async asyncData({ $axios, store, error, redirect }) {
     return await $axios
-      .$get('questions/getAllFirst')
+      .$get('questions/get')
       .then((r) => {
         const questions = r.questions
         const lastKey = r.lastKey

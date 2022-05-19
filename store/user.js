@@ -4,6 +4,7 @@ export const state = () => ({
   displayName: '',
   token: '',
   coins:'',
+  isAdmin:false,
   dialog:false,
 })
 

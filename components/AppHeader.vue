@@ -91,6 +91,10 @@
                         <h4>{{ user.coins }}</h4>
                       </div>
                       <v-divider class="my-3"></v-divider>
+                    <v-btn class="btn" depressed rounded text href="google.com">
+                      الذهاب للوحة التحكم
+                    </v-btn>
+                      <v-divider class="my-3"></v-divider>
                       <v-btn class="btn" depressed rounded text>
                         عرض الملف الشخصي
                       </v-btn>
@@ -121,7 +125,8 @@ export default {
   // }),
   computed: {
     user() {
-      // console.log(this.$store.state.user)
+      console.log("==============")
+      console.log(this.$store.state.user)
       return this.$store.state.user
     },
   },
@@ -212,17 +217,17 @@ export default {
       }
     }
   }
-}
-.coinContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  color: #efae2e;
-  .coinImg {
-    flex-grow: 0;
-    width: 30px;
-    height: 30px;
+ 
+} .coinContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: #efae2e;
+    .coinImg {
+      flex-grow: 0;
+      width: 30px;
+      height: 30px;
+    }
   }
-}
 </style>

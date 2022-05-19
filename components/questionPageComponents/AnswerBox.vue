@@ -1,12 +1,17 @@
 <template>
   <div class="ABContainer">
     <div class="VoteAnswerCon">
-      <add-vote
-        :votesCount="data.votesCount"
-        :docID="data.aID"
-        :vote="data.avote"
-        collection="answers"
-      />
+      <div class="operations">
+        <add-vote
+          :votesCount="data.votesCount"
+          :docID="data.aID"
+          :vote="data.avote"
+          collection="answers"
+        />
+        <v-icon class="reportIcon" title="إبلاغ" outline
+          >report</v-icon
+        >
+      </div>
       <p class="aBody" v-html="data.body"></p>
     </div>
     <div class="DateUserInfo">
@@ -17,7 +22,12 @@
           color="primary"
           :size="$vuetify.breakpoint.xsOnly ? '30' : '40'"
         >
-          <v-icon :small="$vuetify.breakpoint.xsOnly" color="background"
+          <img
+            v-if="data.uImg"
+            :src="data.uImg"
+            :alt="data.displayName"
+          />
+          <v-icon v-else :small="$vuetify.breakpoint.xsOnly" color="background"
             >account_circle</v-icon
           >
         </v-avatar>
@@ -59,6 +69,16 @@ export default {
     display: flex;
     gap: 0.5rem;
     flex-direction: row-reverse;
+    .operations {
+      display: flex;
+      flex-direction: column;
+      .reportIcon:active{
+        color: red;
+      }
+    }
+    // .material-symbols-outlined {
+    //   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    // }
     .aBody {
       flex: auto;
     }
