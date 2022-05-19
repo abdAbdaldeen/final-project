@@ -91,6 +91,10 @@
                       <h4>{{ user.coins }}</h4>
                     </div>
                     <v-divider class="my-3"></v-divider>
+                    <v-btn class="btn" depressed rounded text href="google.com">
+                      الذهاب للوحة التحكم
+                    </v-btn>
+                    <v-divider class="my-3"></v-divider>
                     <v-btn class="btn" depressed rounded text>
                       عرض الملف الشخصي
                     </v-btn>
@@ -120,7 +124,8 @@ export default {
   // }),
   computed: {
     user() {
-      // console.log(this.$store.state.user)
+      console.log("==============")
+      console.log(this.$store.state.user)
       return this.$store.state.user
     },
   },
