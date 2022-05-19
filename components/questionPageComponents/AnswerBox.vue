@@ -8,7 +8,7 @@
           :vote="data.avote"
           collection="answers"
         />
-        <v-icon class="material-symbols-outlined" title="إبلاغ" outline
+        <v-icon class="reportIcon" title="إبلاغ" outline
           >report</v-icon
         >
       </div>
@@ -72,6 +72,9 @@ export default {
     .operations {
       display: flex;
       flex-direction: column;
+      .reportIcon:active{
+        color: red;
+      }
     }
     // .material-symbols-outlined {
     //   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
