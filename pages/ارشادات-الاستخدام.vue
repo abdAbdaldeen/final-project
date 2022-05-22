@@ -111,7 +111,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          title: 'إرشادات الاستخدام',
+          title: ' قواعد وإرشادات الاستخدام',
           rule1: {
             body: '1- بمجرد تسجيلك كمستخدم جديد لاحظ أننا قمنا بإضافة عدد من العملات في رصيدك. ',
             src: '/coins.png',
