@@ -41,6 +41,66 @@
       ></v-img>
       <p class="ruleBody">{{ data.rule4.body }}</p>
     </div>
+    <br />
+    <div class="ruleCard">
+      <p class="ruleBody">{{ data.rule5.body }}</p>
+      <v-img
+        :src="data.rule5.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '200'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '200'"
+        class=""
+      ></v-img>
+    </div>
+    <br />
+    <div class="ruleCardRev">
+      <v-img
+        :src="data.rule6.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        class=""
+      ></v-img>
+      <p class="ruleBody">{{ data.rule6.body }}</p>
+    </div>
+    <br />
+    <div class="ruleCard">
+      <p class="ruleBody">{{ data.rule7.body }}</p>
+      <v-img
+        :src="data.rule7.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        class=""
+      ></v-img>
+    </div>
+    <br />
+    <div class="ruleCardRev">
+      <v-img
+        :src="data.rule8.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        class=""
+      ></v-img>
+      <p class="ruleBody">{{ data.rule8.body }}</p>
+    </div>
+    <br />
+    <div class="ruleCard">
+      <p class="ruleBody">{{ data.rule9.body }}</p>
+      <v-img
+        :src="data.rule9.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        class=""
+      ></v-img>
+    </div>
+    <br />
+    <div class="ruleCardRev">
+      <v-img
+        :src="data.rule10.src"
+        :width="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        :height="$vuetify.breakpoint.xsOnly ? '150' : '256'"
+        class=""
+      ></v-img>
+      <p class="ruleBody">{{ data.rule10.body }}</p>
+    </div>
   </v-container>
 </template>
 
@@ -61,12 +121,36 @@ export default {
             src: 'addQ.gif',
           },
           rule3: {
-            body: '3- لكسب العملات يجب عليك الحصول على تصويتات إيجابية، ولقاء كل تصويت إيجابي تحصل عليه سواءً على أسئلة قمت بطرحها أو على إجابات على أسئلة الآخرين سيتم اضافة عملة واحدة إلى رصيدك.',
+            body: '3- لكسب العملات يجب عليك الحصول على تصويتات إيجابية، ولقاء كل تصويت إيجابي تحصل عليه سواءً على أسئلة قمت بطرحها أو عند إجابتك على أسئلة الآخرين سيتم اضافة عملة واحدة إلى رصيدك.',
             src: 'upVotes.png',
           },
           rule4: {
-            body: '4- بالمقابل فإن كل تصويت سلبي تحصل عليه سواء على أسئلة قمت بطرحها أو على إجابات على أسئلة الآخرين سينقص عملة واحدة من مجموع عملاتك.',
+            body: '4- بالمقابل فإن كل تصويت سلبي تحصل عليه سواء على أسئلة قمت بطرحها أو عند إجابتك على أسئلة الآخرين سينقص عملة واحدة من مجموع عملاتك.',
             src: 'downVotes.png',
+          },
+          rule5: {
+            body: '5- بمجرد حصول إجابتك على 10 إبلاغات سيتم حذفها تلقائياً.',
+            src: 'report2.png',
+          },
+          rule6: {
+            body: '6- ابحث في المجتمع قبل طرح سؤالك.',
+            src: 'search.png',
+          },
+          rule7: {
+            body: '7- ناقش بشكل حضاري واحترم آراء الآخرين.',
+            src: 'Discussion.png',
+          },
+          rule8: {
+            body: '8- أكتب عنواناً واضحاً ومختصراً لسؤالك.',
+            src: 'title.png',
+          },
+          rule9: {
+            body: '9- لا تتردد في إبداء رأيك والتصويت على الأسئلة والإجابات، ولا تطلب من الآخرين التصويت على أسئلتك أو إجاباتك.',
+            src: 'vote.png',
+          },
+          rule10: {
+            body: '10- لا تنشر الروابط الدعائية ولا تروّج لخدمات أو عروض.',
+            src: 'no.png',
           },
         }
       },
@@ -76,20 +160,19 @@ export default {
 </script>
 
 <style lang="scss">
-.rulesCon{
+.rulesCon {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-.ruleCard {
-  display: flex;
-  max-width: 60rem;
-  margin: auto;
-  column-gap: 0.5rem;}
-  .ruleCardRev{
+  .ruleCard {
     display: flex;
-  max-width: 60rem;
-  margin: auto;
-  column-gap: 0.5rem;
+    margin: auto;
+    column-gap: 2rem;
+  }
+  .ruleCardRev {
+    display: flex;
+    margin: auto;
+    column-gap: 2rem;
   }
   .ruleBody {
     max-width: 20rem;
@@ -100,18 +183,25 @@ export default {
     max-height: 270px !important;
   }
 
-@media (max-width: 768px) {
-  .ruleCard {
-    display: flex;
-    flex-direction: column;
-    .ruleBody {
-      max-width: 20rem;
-      align-self: start;
+  @media (max-width: 768px) {
+    .ruleCard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 1rem;
+      .ruleBody {
+        max-width: 20rem;
+        align-self: start;
+      }
+    }
+
+    .ruleCardRev {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      row-gap: 1rem;
     }
   }
-  .ruleCardRev{
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}}
+}
 </style>
