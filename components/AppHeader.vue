@@ -1,40 +1,40 @@
 <template>
-  <section class="header-container">
-    <v-container>
-      <header class="header">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <div class="container">
-          <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
+  <section  class="header-container">
+    <div id="myHeader">
+      <v-container>
+        <header  class="header">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <div class="container">
+            <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
 
-          <form v-if="!$vuetify.breakpoint.xsOnly" class="search-form">
-            <input type="text" placeholder="ابحث عن سؤال" class="search" />
-            <v-icon class="search-icon" color="primary">search</v-icon>
-          </form>
+            <form v-if="!$vuetify.breakpoint.xsOnly" class="search-form">
+              <input type="text" placeholder="ابحث عن سؤال" class="search" />
+              <v-icon class="search-icon" color="primary">search</v-icon>
+            </form>
 
-          <v-icon
-            v-if="$vuetify.theme.dark == true"
-            class="mode-icon"
-            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-          >
-            light_mode
-          </v-icon>
-          <v-icon
-            v-else
-            class="mode-icon"
-            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-            >dark_mode</v-icon
-          >
+            <v-icon
+              v-if="$vuetify.theme.dark == true"
+              class="mode-icon"
+              @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+            >
+              light_mode
+            </v-icon>
+            <v-icon
+              v-else
+              class="mode-icon"
+              @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+              >dark_mode</v-icon
+            >
 
-          <v-btn
-            v-if="!user.token"
-            to="/l/تسجيل-الدخول"
-            color="primary"
-            class="SNbtn"
-            :small="$vuetify.breakpoint.xsOnly"
-            >تسجيل الدخول</v-btn
-          >
-          <div v-else class="avatarCon">
-            
+            <v-btn
+              v-if="!user.token"
+              to="/l/تسجيل-الدخول"
+              color="primary"
+              class="SNbtn"
+              :small="$vuetify.breakpoint.xsOnly"
+              >تسجيل الدخول</v-btn
+            >
+            <div v-else class="avatarCon">
               <v-menu bottom min-width="200px" rounded offset-y>
                 <template #activator="{ on }">
                   <v-btn icon large v-on="on">
@@ -91,10 +91,10 @@
                         <h4>{{ user.coins }}</h4>
                       </div>
                       <v-divider class="my-3"></v-divider>
-                    <v-btn class="btn" depressed rounded text href="google.com">
-                      الذهاب للوحة التحكم
-                    </v-btn>
-                      <v-divider class="my-3"></v-divider>
+                      <!-- <v-btn class="btn" depressed rounded text href="google.com">
+                        الذهاب للوحة التحكم
+                      </v-btn> -->
+                      <!-- <v-divider class="my-3"></v-divider> -->
                       <v-btn class="btn" depressed rounded text>
                         عرض الملف الشخصي
                       </v-btn>
@@ -106,14 +106,15 @@
                   </v-list-item-content>
                 </v-card>
               </v-menu>
-            
-          </div>
-        </div>
-      </header>
-      <nav>
-        <CategoriesBar />
-      </nav>
-    </v-container>
+            </div>
+          </div> <nav>
+          <CategoriesBar class="catCon" />
+        </nav>
+        </header>
+      
+      </v-container>
+    </div>
+    <div id="headerSpaceHolder"></div>
   </section>
 </template>
 
@@ -125,10 +126,35 @@ export default {
   // }),
   computed: {
     user() {
-      console.log("==============")
+      console.log('==============')
       console.log(this.$store.state.user)
       return this.$store.state.user
     },
+  },
+  mounted() {
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function () {
+      myFunction()
+    }
+
+    // Get the header
+    const header = document.getElementById('myHeader')
+
+    // Get the offset position of the navbar
+    const sticky = header.offsetTop
+    const h = header.offsetHeight;
+    // console.log(h)
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add('sticky')
+        document.querySelector('#headerSpaceHolder').style.height = h + 'px'
+      } else {
+        header.classList.remove('sticky')
+        document.querySelector('#headerSpaceHolder').style.height = 0 + 'px'
+
+      }
+    }
   },
   methods: {
     logout() {
@@ -144,7 +170,16 @@ export default {
 <style lang="scss" scoped>
 .header-container {
   box-shadow: 0 5px 10px rgba(122, 127, 134, 0.3);
-
+  .sticky {
+    background-color: var(--v-background-base);
+    box-shadow: 0 5px 10px rgba(122, 127, 134, 0.3);
+    margin: auto;
+    position: fixed;
+    top: 0;
+   right: 0;
+    width: 100%;
+     z-index: 10;
+  }
   header {
     a {
       text-decoration: none;
@@ -217,17 +252,22 @@ export default {
       }
     }
   }
+  
+// .catCon{
+//   justify-content: center;
+// }
  
-} .coinContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
-    color: #efae2e;
-    .coinImg {
-      flex-grow: 0;
-      width: 30px;
-      height: 30px;
-    }
+} 
+.coinContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: #efae2e;
+  .coinImg {
+    flex-grow: 0;
+    width: 30px;
+    height: 30px;
   }
+}
 </style>
