@@ -1,14 +1,19 @@
 <template>
   <div class="TheQuestion">
-    <h1 class="QTitle" dir="auto">{{ data.title }}</h1>
     <div class="QBodyContainer">
-      <add-vote
-        :votesCount="data.votesCount"
-        :docID="$route.params.id"
-        :vote="data.qvote"
-        collection="questions"
-      />
-      <p class="QBody" v-html="data.body"></p>
+      <div class="operations">
+        <add-vote
+          :votesCount="data.votesCount"
+          :docID="$route.params.id"
+          :vote="data.qvote"
+          collection="questions"
+        />
+        <v-icon class="reportIcon" title="إبلاغ" outline>report</v-icon>
+      </div>
+      <div>
+        <h1 class="QTitle" dir="auto">{{ data.title }}</h1>
+        <p class="QBody" v-html="data.body"></p>
+      </div>
     </div>
     <p>تم النشر في {{ data.createdAt }}</p>
   </div>
@@ -32,7 +37,7 @@ export default {
 .TheQuestion {
   .QBodyContainer {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     flex-direction: row-reverse;
   }
   .QBody {
@@ -42,5 +47,12 @@ export default {
     text-align: initial;
     padding: 1rem 0px;
   }
+  .operations {
+      display: flex;
+      flex-direction: column;
+      .reportIcon:active{
+        color: red;
+      }
+    }
 }
 </style>
