@@ -8,9 +8,10 @@
           :vote="data.avote"
           collection="answers"
         />
-        <v-icon class="reportIcon" title="إبلاغ" outline
+        <!-- <v-icon class="reportIcon" title="إبلاغ" outline
           >report</v-icon
-        >
+        > -->
+        <Report collection="answers" :docID="data.aID" :reported="data.aReport"/>
       </div>
       <p class="aBody" v-html="data.body"></p>
     </div>
@@ -39,9 +40,10 @@
 
 <script>
 import AddVote from './AddVote.vue'
+import Report from './Report.vue'
 export default {
   name: 'AnswerBox',
-  components: { AddVote },
+  components: { AddVote, Report },
   // data() {
   //   return {
   //     theAnswer:
@@ -72,9 +74,9 @@ export default {
     .operations {
       display: flex;
       flex-direction: column;
-      .reportIcon:active{
-        color: red;
-      }
+      // .reportIcon:active{
+      //   color: red;
+      // }
     }
     // .material-symbols-outlined {
     //   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;

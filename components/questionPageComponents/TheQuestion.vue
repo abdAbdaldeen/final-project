@@ -8,7 +8,9 @@
           :vote="data.qvote"
           collection="questions"
         />
-        <v-icon class="reportIcon" title="إبلاغ" outline>report</v-icon>
+        <Report collection="questions" :docID="$route.params.id" :reported="data.aReport"/>
+
+        <!-- <v-icon class="reportIcon" title="إبلاغ" outline>report</v-icon> -->
       </div>
       <div>
         <h1 class="QTitle" dir="auto">{{ data.title }}</h1>
@@ -21,10 +23,11 @@
 
 <script>
 import AddVote from './AddVote.vue'
+import Report from './Report.vue'
 
 export default {
   name: 'TheQuestion',
-  components: { AddVote },
+  components: { AddVote, Report },
   computed: {
     data() {
       return this.$store.state.question.question
