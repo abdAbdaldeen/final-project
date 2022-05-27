@@ -1,5 +1,7 @@
 <template lang="">
+<div>
   <v-icon
+   v-if="user.token"
     class="reportIcon"
     :class="{ reported: reportedVar }"
     :title="reportedVar ? 'الغاء الابلاغ' : 'إبلاغ'"
@@ -8,6 +10,17 @@
     :disabled="loading"
     >report</v-icon
   >
+   <v-icon
+   v-else
+    class="reportIcon"
+    :class="{ reported: reportedVar }"
+    :title="reportedVar ? 'الغاء الابلاغ' : 'إبلاغ'"
+    outline
+    @click="popupToggle"
+    :disabled="loading"
+    >report</v-icon
+  >
+</div>
 </template>
 <script>
 export default {
@@ -24,7 +37,19 @@ export default {
       loading: false,
     }
   },
+  computed: {
+    data() {
+      return this.$store.state.question.question
+    },
+    user() {
+      return this.$store.state.user
+    },
+  },
   methods: {
+    popupToggle() {
+      console.log('hello')
+      this.$store.commit('user/popupToggle')
+    },
     async report() {
       this.loading = true
       const res = await this.$axios
