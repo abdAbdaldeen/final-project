@@ -8,7 +8,7 @@
             content="width=device-width, initial-scale=1.0"
           />
           <div class="container">
-            <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
+            <nuxt-link to="/" class="logoLink" ><h1 class="logo">مبرمجون</h1></nuxt-link>
 
             <form v-if="!$vuetify.breakpoint.xsOnly" class="search-form" @submit="searchSubmit">
               <input v-model="search" type="text" placeholder="ابحث عن سؤال" class="search" />
@@ -241,8 +241,7 @@ export default {
         .logo {
           font-size: 2rem;
         }
-        .mode-icon {
-          justify-content: end;
+        .logoLink{
           flex: 1;
         }
         .avatarCon {
