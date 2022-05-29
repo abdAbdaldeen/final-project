@@ -1,0 +1,1 @@
+export default {"rtl":true,"dark":true,"icons":{"iconfont":"md"},"theme":{"options":{"customProperties":true},"themes":{"light":{"primary":"#4ECCA3","background":"#FCFCFC","qBoxBg":"#fff","textColor":"#000","boxShadowColor":"#c1c1c1"},"dark":{"primary":"#4ECCA3","background":"#232931","qBoxBg":"#393E46","textColor":"#fff","boxShadowColor":"#000"}}}}

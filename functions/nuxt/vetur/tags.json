@@ -1,0 +1,47 @@
+{
+  "AppFooter": {
+    "description": "Auto imported from components/AppFooter.vue"
+  },
+  "AppHeader": {
+    "description": "Auto imported from components/AppHeader.vue"
+  },
+  "AskQuestionBox": {
+    "description": "Auto imported from components/AskQuestionBox.vue"
+  },
+  "CategoriesBar": {
+    "description": "Auto imported from components/CategoriesBar.vue"
+  },
+  "CategoryDescription": {
+    "description": "Auto imported from components/CategoryDescription.vue"
+  },
+  "QuestionBox": {
+    "description": "Auto imported from components/QuestionBox.vue"
+  },
+  "SignUpForm": {
+    "description": "Auto imported from components/Sign-up-Form.vue"
+  },
+  "SignInForm": {
+    "description": "Auto imported from components/SignInForm.vue"
+  },
+  "SignInFormDialog": {
+    "description": "Auto imported from components/SignInFormDialog.vue"
+  },
+  "CommonMyVueEditor": {
+    "description": "Auto imported from components/common/MyVueEditor.vue"
+  },
+  "CommonQuestionList": {
+    "description": "Auto imported from components/common/QuestionList.vue"
+  },
+  "QuestionPageComponentsAddVote": {
+    "description": "Auto imported from components/questionPageComponents/AddVote.vue"
+  },
+  "QuestionPageComponentsAnswerBox": {
+    "description": "Auto imported from components/questionPageComponents/AnswerBox.vue"
+  },
+  "QuestionPageComponentsReport": {
+    "description": "Auto imported from components/questionPageComponents/Report.vue"
+  },
+  "QuestionPageComponentsTheQuestion": {
+    "description": "Auto imported from components/questionPageComponents/TheQuestion.vue"
+  }
+}

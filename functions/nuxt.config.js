@@ -1,4 +1,5 @@
-export default {
+// eslint-disable-next-line nuxt/no-cjs-in-config
+module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'final-project',
@@ -70,7 +71,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://europe-west1-programmers-qanda.cloudfunctions.net/api/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
