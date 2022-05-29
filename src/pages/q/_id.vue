@@ -124,4 +124,10 @@ export default {
     margin-top: 1rem;
   }
 }
+.QBody,
+  .aBody {
+    * {
+      max-width: 100%;
+    }
+  }
 </style>
