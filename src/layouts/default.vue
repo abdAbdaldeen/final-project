@@ -1,7 +1,12 @@
 <template>
   <v-app>
-    <AppHeader />
-    <Nuxt />
+    <div class="mainCon">
+      <div class="subCon">
+        <AppHeader />
+        <Nuxt />
+      </div>
+      <AppFooter />
+    </div>
 <!-- float search btn for mobile view -->
     <v-btn
       v-if="$vuetify.breakpoint.xsOnly"
@@ -28,7 +33,6 @@
     </v-dialog>
     <!-- ----------------------------------------------------------------------------- -->
     <SignInFormDialog />
-    <AppFooter />
   </v-app>
 </template>
 <script>
@@ -91,6 +95,14 @@ export default {
     left: 0;
     margin: 2rem 1rem;
     z-index: 10;
+  }
+}
+.mainCon{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .subCon{
+    flex: 1;
   }
 }
 </style>
