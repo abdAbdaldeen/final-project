@@ -1,9 +1,12 @@
 <template>
-  <section  class="header-container">
+  <section class="header-container">
     <div id="myHeader">
       <v-container>
-        <header  class="header">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <header class="header">
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <div class="container">
             <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
 
@@ -91,13 +94,13 @@
                         <h4>{{ user.coins }}</h4>
                       </div>
                       <v-divider class="my-3"></v-divider>
-                      <!-- <v-btn class="btn" depressed rounded text href="google.com">
-                        الذهاب للوحة التحكم
-                      </v-btn> -->
-                      <!-- <v-divider class="my-3"></v-divider> -->
+                      <v-btn class="btn" depressed rounded text href="google.com">
+                        الذهاب إلى لوحة التحكم
+                      </v-btn>
+                      <!-- <v-divider class="my-3"></v-divider>
                       <v-btn class="btn" depressed rounded text>
                         عرض الملف الشخصي
-                      </v-btn>
+                      </v-btn> -->
                       <v-divider class="my-3"></v-divider>
                       <v-btn depressed rounded text @click="logout">
                         تسجيل الخروج
@@ -107,11 +110,11 @@
                 </v-card>
               </v-menu>
             </div>
-          </div> <nav>
-          <CategoriesBar class="catCon" />
-        </nav>
+          </div>
+          <nav>
+            <CategoriesBar class="catCon" />
+          </nav>
         </header>
-      
       </v-container>
     </div>
     <div id="headerSpaceHolder"></div>
@@ -140,7 +143,7 @@ export default {
 
     // Get the offset position of the navbar
     const sticky = header.offsetTop
-    const h = header.offsetHeight;
+    const h = header.offsetHeight
     // console.log(h)
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
@@ -150,7 +153,6 @@ export default {
       } else {
         header.classList.remove('sticky')
         document.querySelector('#headerSpaceHolder').style.height = 0 + 'px'
-
       }
     }
   },
@@ -174,9 +176,9 @@ export default {
     margin: auto;
     position: fixed;
     top: 0;
-   right: 0;
+    right: 0;
     width: 100%;
-     z-index: 10;
+    z-index: 10;
   }
   header {
     a {
@@ -223,39 +225,32 @@ export default {
           outline: none;
         }
       }
-      .SNbtn {
-      }
-      .mode-icon {
-      }
-      .avatarCon {
-        // margin-right: 0.2rem;
-      }
       .cardIcon {
         vertical-align: middle;
       }
     }
     @media (max-width: 768px) {
       .container {
-        gap: 0.5rem;
+        justify-content: space-between;
         .logo {
-          font-size: 1.3rem;
-          margin-left: 0.5rem;
+          font-size: 2rem;
         }
         .mode-icon {
+          justify-content: end;
+          flex: 1;
+        }
+        .avatarCon {
+          justify-content: end;
         }
         .btn {
-          font-size: 1rem !important;
+          font-size: 1.5rem !important;
           margin-right: 0.5rem;
+          padding: 10px !important;
         }
       }
     }
   }
-  
-// .catCon{
-//   justify-content: center;
-// }
- 
-} 
+}
 .coinContainer {
   display: flex;
   align-items: center;
