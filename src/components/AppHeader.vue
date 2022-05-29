@@ -10,9 +10,9 @@
           <div class="container">
             <nuxt-link to="/"><h1 class="logo">مبرمجون</h1></nuxt-link>
 
-            <form v-if="!$vuetify.breakpoint.xsOnly" class="search-form">
-              <input type="text" placeholder="ابحث عن سؤال" class="search" />
-              <v-icon class="search-icon" color="primary">search</v-icon>
+            <form v-if="!$vuetify.breakpoint.xsOnly" class="search-form" @submit="searchSubmit">
+              <input v-model="search" type="text" placeholder="ابحث عن سؤال" class="search" />
+              <v-icon class="search-icon" color="primary" @click="searchSubmit">search</v-icon>
             </form>
 
             <v-icon
@@ -124,9 +124,9 @@
 <script>
 export default {
   name: 'AppHeader',
-  // data: () => ({
-  //   coins: 0,
-  // }),
+  data: () => ({
+    search: "",
+  }),
   computed: {
     user() {
       return this.$store.state.user
@@ -163,6 +163,12 @@ export default {
       this.$cookies.remove('authToken')
       window.location.href = '/'
     },
+    searchSubmit(e){
+      e.preventDefault()
+      if (this.search) {
+        this.$router.push(`/search?q=${this.search}`)
+      }
+    }
   },
 }
 </script>
