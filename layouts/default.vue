@@ -28,6 +28,7 @@
       </v-card>
     </v-dialog>
     <SignInFormDialog />
+    <AppFooter />
   </v-app>
 </template>
 <script>
