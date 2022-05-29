@@ -61,6 +61,7 @@ export default {
         border-radius: 4px;
         padding: 0.5rem 0.8rem;
         align-self: center;
+        word-break: keep-all;
       }
     }
     .QBbody {
@@ -91,8 +92,9 @@ export default {
       }
       .QBvotes-num {
         text-align: center;
-        min-width: 1.5rem;
+        min-width: 3.7rem;
         font-size: 0.7rem;
+        padding: 0.4rem 0.4rem !important;
       }
       .QBbody {
         font-size: 0.7rem !important;

@@ -9,6 +9,7 @@
             ><h3>إرشادات الاستخدام</h3></nuxt-link
           >
         </div>
+        <div style="width: 132.578px;"></div>
       </div>
       <v-col class="text-center" cols="12">
         {{ new Date().getFullYear() }} —
@@ -36,6 +37,7 @@ export default {}
 
   .fCon {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 1rem;
     .fLogo {
       color: #fff !important;
@@ -46,7 +48,7 @@ export default {}
       column-gap: 2rem;
       align-items: center;
       justify-content: center;
-      flex: 1;
+      // flex: 1;
     }
   }
   @media (max-width: 768px) {

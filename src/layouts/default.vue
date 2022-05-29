@@ -23,9 +23,9 @@
     </v-btn>
     <v-dialog v-if="$vuetify.breakpoint.xsOnly" v-model="dialog" class="searchDialog">
       <v-card>
-        <form class="search-form">
-          <input type="text" placeholder="ابحث عن سؤال" class="search" />
-          <v-icon class="search-icon" color="primary" @click="dialogOn"
+        <form class="search-form" @submit="searchSubmit">
+          <input v-model="search" type="text" placeholder="ابحث عن سؤال" class="search" />
+          <v-icon class="search-icon" color="primary" @click="searchSubmit"
             >search</v-icon
           >
         </form>
@@ -39,6 +39,7 @@
 export default {
   data: () => ({
     dialog: false,
+    search: ""
   }),
 
   async fetch() {
@@ -52,9 +53,13 @@ export default {
     },
   },
   methods: {
-    dialogOn() {
-      console.log(this.dialog)
-    },
+    searchSubmit(e){
+      e.preventDefault()
+      if (this.search) {
+        this.dialog = false;
+        this.$router.push(`/search?q=${this.search}`)
+      }
+    }
   },
 }
 </script>
