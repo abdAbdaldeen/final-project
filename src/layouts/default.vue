@@ -1,9 +1,8 @@
 <template>
   <v-app>
     <AppHeader />
-
     <Nuxt />
-
+<!-- float search btn for mobile view -->
     <v-btn
       v-if="$vuetify.breakpoint.xsOnly"
       :key="activeFab.icon"
@@ -27,6 +26,7 @@
         </form>
       </v-card>
     </v-dialog>
+    <!-- ----------------------------------------------------------------------------- -->
     <SignInFormDialog />
     <AppFooter />
   </v-app>
@@ -57,7 +57,6 @@ export default {
 <style lang="scss" >
 @media (max-width: 768px) {
   .v-dialog{
-    // align-self: flex-start !important;
     .v-card {
       padding: 0.5rem;
 
@@ -66,11 +65,9 @@ export default {
         justify-content: flex-start;
         width: 100%;
         max-width: 100rem;
-        // border: 2px solid rgba(178, 184, 192, 0.3);
         border-radius: 10px;
 
         .search-icon {
-          // justify-content: flex-end;
           font-size: 1.7rem;
           margin-left: 0.5rem;
         }
@@ -93,6 +90,7 @@ export default {
     bottom: 0;
     left: 0;
     margin: 2rem 1rem;
+    z-index: 10;
   }
 }
 </style>
