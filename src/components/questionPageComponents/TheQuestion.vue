@@ -12,7 +12,7 @@
 
         <!-- <v-icon class="reportIcon" title="إبلاغ" outline>report</v-icon> -->
       </div>
-      <div>
+      <div class="QTitleAndQBody">
         <h1 class="QTitle" dir="auto">{{ data.title }}</h1>
         <p class="QBody" v-html="data.body"></p>
       </div>
@@ -58,5 +58,8 @@ export default {
         color: red;
       }
     }
+  .QTitleAndQBody{
+    flex: 1;
+  }
 }
 </style>
