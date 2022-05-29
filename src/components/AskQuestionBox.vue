@@ -32,12 +32,12 @@ export default {
   }
   .ask {
     margin-top: 1rem;
-    //background-color: var(--v-qBoxBg-base);
     box-shadow: $boxShadow;
     max-width: 100%;
     border-radius: 10px;
     height: 4rem;
     padding: 1rem;
+    font-size: 1rem !important;
   }
   @media (max-width: 768px) {
     .ask {
