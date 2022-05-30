@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       element: null,
-      firstLoadLength: 6,
+      firstLoadLength: 10,
       loading: false,
       stop: false,
     }
@@ -23,7 +23,7 @@ export default {
     },
   },
   mounted() {
-    if (this.data.questions.length == this.firstLoadLength) {
+    if (this.data.questions.length >= this.firstLoadLength) {
       window.addEventListener('scroll', this.handleScroll)
     }
   },
