@@ -49,6 +49,7 @@ export default {
         },
       })
       .then((r) => {
+        store.commit('categories/setActive', r.groupID)
         return store.commit('question/add', r)
       })
       .catch((e) => {
@@ -68,6 +69,12 @@ export default {
     data() {
       return this.$store.state.question.question
     },
+  },
+  mounted() {
+    this.$store.commit('categories/setActive', this.$store.state.question.question.groupID)
+  },
+  beforeDestroy() {
+    this.$store.commit('categories/removeActive', this.$store.state.question.question.groupID)
   },
   methods: {
     async submit() {

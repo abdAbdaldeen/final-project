@@ -3,17 +3,7 @@
     <div v-for="category in categories" :key="category.gID">
       <nuxt-link :to="'/g/' + category.gID">
         <v-img
-          v-if="$route.params.id == category.gID"
-          class="Active"
-          :src="category.imgUrl"
-          :alt="category.name"
-          :title="category.name"
-          
-        >
-        </v-img>
-        <v-img
-          v-else
-          class="category"
+          :class="(($route.params.id == category.gID) || category.isActive) ? 'Active' : 'category'"
           :src="category.imgUrl"
           :alt="category.name"
           :title="category.name"
@@ -34,6 +24,14 @@ export default {
       return this.$store.state.categories.categories
     },
   },
+  watch: {
+    '$store.state.categories.categories': {
+      handler() {
+        this.$forceUpdate();
+      },
+      immediate: true
+    } 
+  }
 }
 </script>
 
