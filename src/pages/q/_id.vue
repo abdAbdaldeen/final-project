@@ -23,7 +23,7 @@
         <my-vue-editor>
           <VueEditor v-model="answer" :editorToolbar="$store.state.customToolbar"/>
         </my-vue-editor>
-        <div class="text-right">
+        <div class="text-center">
           <v-btn class="AddAnswerBtn" type="submit" color="primary" :loading="loading" :disabled="loading">
             نشر
           </v-btn>
