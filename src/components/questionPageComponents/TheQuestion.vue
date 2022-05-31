@@ -9,7 +9,7 @@
           collection="questions"
         />
         <Report collection="questions" :docID="$route.params.id" :reported="data.aReport"/>
-
+        <Delete v-if="data.isOwner" collection="questions" :docID="$route.params.id" :deleteFun="deleteFun"/>
         <!-- <v-icon class="reportIcon" title="إبلاغ" outline>report</v-icon> -->
       </div>
       <div class="QTitleAndQBody">
@@ -23,15 +23,21 @@
 
 <script>
 import AddVote from './AddVote.vue'
+import Delete from './Delete.vue'
 import Report from './Report.vue'
 
 export default {
   name: 'TheQuestion',
-  components: { AddVote, Report },
+  components: { AddVote, Report, Delete },
   computed: {
     data() {
       return this.$store.state.question.question
     },
+  },
+  methods: {
+    deleteFun(){
+      this.$router.push('/')
+    }
   },
 }
 </script>

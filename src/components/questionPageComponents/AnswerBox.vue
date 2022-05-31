@@ -1,5 +1,5 @@
 <template>
-  <div class="ABContainer">
+  <div class="ABContainer" v-show="!hidden">
     <div class="VoteAnswerCon">
       <div class="operations">
         <add-vote
@@ -11,7 +11,17 @@
         <!-- <v-icon class="reportIcon" title="إبلاغ" outline
           >report</v-icon
         > -->
-        <Report collection="answers" :docID="data.aID" :reported="data.aReport"/>
+        <Report
+          collection="answers"
+          :docID="data.aID"
+          :reported="data.aReport"
+        />
+        <Delete
+          v-if="data.isOwner"
+          collection="answers"
+          :docID="data.aID"
+          :deleteFun="deleteFun"
+        />
       </div>
       <p class="aBody" v-html="data.body"></p>
     </div>
@@ -23,11 +33,7 @@
           color="primary"
           :size="$vuetify.breakpoint.xsOnly ? '30' : '40'"
         >
-          <img
-            v-if="data.uImg"
-            :src="data.uImg"
-            :alt="data.displayName"
-          />
+          <img v-if="data.uImg" :src="data.uImg" :alt="data.displayName" />
           <v-icon v-else :small="$vuetify.breakpoint.xsOnly" color="background"
             >account_circle</v-icon
           >
@@ -40,22 +46,25 @@
 
 <script>
 import AddVote from './AddVote.vue'
+import Delete from './Delete.vue'
 import Report from './Report.vue'
 export default {
   name: 'AnswerBox',
-  components: { AddVote, Report },
-  // data() {
-  //   return {
-  //     theAnswer:
-  //       'Computed Property:الاسم الأكثر ملاءمة لقيمة محسوبة هو خاصية محسوبة. في الواقع ،عندما يتم إنشاء مثيل لـ Vue ، يتم تحويل الخصائص المحسوبة إلى  Vue باستخدام برنامج getter  وأحيانًا جهاز ضبط. في الأساس ، يمكنك التفكير في القيمة المحسوبة كقيمة مشتقة سيتم تحديثها .Method:هي مجرد وظيفة مرتبطة بمثيل Vue. سيتم تقييمه فقط عندما تسميه صراحةً.مثل جميع وظائف جافا سكريبت ، فإنه يقبل المعلمات وسيتم إعادة تقييمها في كل مرة يتم استدعاؤها. الأساليب مفيدة في نفس المواقف ، أي وظيفة مفيدة.',
-  //     date: '4 / 2 / 2022',
-  //     userName: 'محمد احمد',
-  //   }
-  // },
+  components: { AddVote, Report, Delete },
+  data() {
+    return {
+      hidden: false,
+    }
+  },
   props: {
     data: {
       type: Object,
       require: true,
+    },
+  },
+  methods: {
+    deleteFun() {
+      this.hidden = true
     },
   },
 }
@@ -74,7 +83,7 @@ export default {
     .operations {
       display: flex;
       flex-direction: column;
-          align-items: center;
+      align-items: center;
       // .reportIcon:active{
       //   color: red;
       // }
