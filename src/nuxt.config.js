@@ -99,7 +99,7 @@ module.exports = {
         }
         for (let i = 0; i < questionsIDs.length; i++) {
           routes.push({
-            url: `https://programmers-qanda.web.app/q/${questionsIDs[i]}`,
+            url: `q/${questionsIDs[i]}`,
             priority: 1,
             lastmod: new Date(),
           })
@@ -121,7 +121,7 @@ module.exports = {
         }
         for (let i = 0; i < IDsArr.length; i++) {
           routes.push({
-            url: `https://programmers-qanda.web.app/g/${IDsArr[i]}`,
+            url: `g/${IDsArr[i]}`,
             priority: 1,
             lastmod: new Date(),
           })
@@ -131,7 +131,11 @@ module.exports = {
       exclude: ['/search'],
       gzip: true,
     })
-    return sitemaps
+    return {
+      hostname: "https://programmers-qanda.web.app/",
+      lastmod: new Date(),
+      sitemaps,
+    }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
