@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="askQ-box">
-      <nuxt-link v-if="user.token" to="/AskQuestionPage">
+      <nuxt-link v-if="user.token" to="/اطرح-سؤال">
         <div class="ask">اطرح سؤال</div>
       </nuxt-link>
       <div v-else class="ask" @click="popupToggle">اطرح سؤال</div>
