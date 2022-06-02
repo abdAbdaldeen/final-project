@@ -70,6 +70,7 @@ typings/
 functions/nuxt
 functions/nuxt.config.js
 public/_nuxt
+.firebase/
 # Nuxt generate
 dist
 
