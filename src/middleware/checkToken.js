@@ -11,14 +11,7 @@ export default async function ({ store, app, $axios }) {
         },
       })
       .then((res) => {
-        const data = {
-          token,
-          email: res.email,
-          displayName: res.displayName,
-          photoURL: res.photoURL,
-          coins: res.coins,
-        }
-        store.commit('user/login', data)
+        store.commit('user/login', {...res,token})
       })
       .catch((e) => {
         console.error(e)

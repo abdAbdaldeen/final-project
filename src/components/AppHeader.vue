@@ -93,8 +93,8 @@
                         ></v-img>
                         <h4>{{ user.coins }}</h4>
                       </div>
-                      <v-divider class="my-3"></v-divider>
-                      <v-btn class="btn" depressed rounded text href="google.com">
+                      <v-divider v-if="isAdmin" class="my-3"></v-divider>
+                      <v-btn v-if="isAdmin" class="btn" depressed rounded text href="http://localhost:3000/">
                         الذهاب إلى لوحة التحكم
                       </v-btn>
                       <!-- <v-divider class="my-3"></v-divider>
@@ -130,6 +130,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user
+    },
+    isAdmin(){
+      return this.user.isAdmin || (this.user.customClaims && this.user.customClaims.admin)
     },
   },
   mounted() {
