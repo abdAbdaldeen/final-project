@@ -65,6 +65,75 @@ export default {
 
     loading: false,
   }),
+  head() {
+    const { englishSiteName, twitterId } = this.$store.state;
+    return {
+      title: this.data.title + " - " + this.$store.state.arabicSiteName,
+      meta: [
+        { name: "keywords", content: this.data.keywords },
+        { name: "description", content: this.data.metaDescription },
+        { name: "format-detection", content: "telephone=no" },
+        { name: "application-name", content: this.$store.state.arabicSiteName },
+        {
+          name: "twitter:image",
+          content: this.data.thumbnail
+            ? this.data.thumbnail
+            : this.$store.state.defaultImage380x285,
+        },
+        {
+          name: "thumbnail",
+          content: this.data.thumbnail
+            ? this.data.thumbnail
+            : this.$store.state.defaultImage380x285,
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+        // eslint-disable-next-line no-unneeded-ternary
+        { name: "twitter:site", content: `@${twitterId ? twitterId : englishSiteName}` },
+        {
+          name: "twitter:image:src",
+          content: this.data.thumbnail
+            ? this.data.thumbnail
+            : this.$store.state.defaultImage380x285,
+        },
+        {
+          name: "twitter:title",
+          content: this.data.title + " - " + this.$store.state.arabicSiteName,
+        },
+        { name: "twitter:description", content: this.data.metaDescription },
+        {
+          property: "og:image",
+          content: this.data.thumbnail
+            ? this.data.thumbnail
+            : this.$store.state.defaultImage380x285,
+        },
+        {
+          property: "og:title",
+          content: this.data.title + " - " + this.$store.state.arabicSiteName,
+        },
+        { property: "og:type", content: "article" },
+        {
+          property: "og:url",
+          content:
+            ( this.$store.state.siteUrl.slice(-1) == '/' ? this.$store.state.siteUrl.slice(0, -1) : this.$store.state.siteUrl  ) +
+            this.$route.fullPath,
+        },
+        { property: "og:description", content: this.data.metaDescription },
+        { property: "site_name", content: this.$store.state.arabicSiteName },
+        {
+          itemprop: "name",
+          content: this.data.title + " - " + this.$store.state.arabicSiteName,
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href:
+            ( this.$store.state.siteUrl.slice(-1) == '/' ? this.$store.state.siteUrl.slice(0, -1) : this.$store.state.siteUrl  ) +
+            this.$route.fullPath,
+        },
+      ],
+    };
+  },
   computed: {
     data() {
       return this.$store.state.question.question
