@@ -7,7 +7,7 @@
       </div>
       <AppFooter />
     </div>
-<!-- float search btn for mobile view -->
+    <!-- float search btn for mobile view -->
     <v-btn
       v-if="$vuetify.breakpoint.xsOnly"
       :key="activeFab.icon"
@@ -21,10 +21,19 @@
     >
       <v-icon large>{{ activeFab.icon }}</v-icon>
     </v-btn>
-    <v-dialog v-if="$vuetify.breakpoint.xsOnly" v-model="dialog" class="searchDialog">
+    <v-dialog
+      v-if="$vuetify.breakpoint.xsOnly"
+      v-model="dialog"
+      class="searchDialog"
+    >
       <v-card>
         <form class="search-form" @submit="searchSubmit">
-          <input v-model="search" type="text" placeholder="ابحث عن سؤال" class="search" />
+          <input
+            v-model="search"
+            type="text"
+            placeholder="ابحث عن سؤال"
+            class="search"
+          />
           <v-icon class="search-icon" color="primary" @click="searchSubmit"
             >search</v-icon
           >
@@ -39,7 +48,7 @@
 export default {
   data: () => ({
     dialog: false,
-    search: ""
+    search: '',
   }),
 
   async fetch() {
@@ -52,20 +61,42 @@ export default {
       return { color: 'primary', icon: 'search' }
     },
   },
+  async mounted() {
+    const token = this.$cookies.get('authToken')
+    if (token && this.$store.state.user.displayName) {
+      return
+    }
+    if (token) {
+      await this.$axios
+        .$get('users/get', {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          this.$store.commit('user/login', { ...res, token })
+        })
+        .catch((e) => {
+          console.error(e)
+          this.$store.commit('user/logout')
+          this.$cookies.remove('authToken')
+        })
+    }
+  },
   methods: {
-    searchSubmit(e){
+    searchSubmit(e) {
       e.preventDefault()
       if (this.search) {
-        this.dialog = false;
+        this.dialog = false
         this.$router.push(`/search?q=${this.search}`)
       }
-    }
+    },
   },
 }
 </script>
-<style lang="scss" >
+<style lang="scss">
 @media (max-width: 768px) {
-  .v-dialog{
+  .v-dialog {
     .v-card {
       padding: 0.5rem;
 
@@ -90,9 +121,9 @@ export default {
 
         .search:focus {
           outline: none;
-        }}
+        }
       }
-    
+    }
   }
   .float {
     position: fixed !important;
@@ -102,11 +133,11 @@ export default {
     z-index: 10;
   }
 }
-.mainCon{
+.mainCon {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  .subCon{
+  .subCon {
     flex: 1;
   }
 }

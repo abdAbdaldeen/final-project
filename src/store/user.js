@@ -10,6 +10,13 @@ export const state = () => ({
 
 export const mutations = {
   login(state, data) {
+    state.email = ""
+    state.photoURL = ""
+    state.displayName = ""
+    state.token = ""
+    state.isAdmin = false
+    state.coins = ""
+
     Object.entries(data).forEach(
       ([key, value]) => (state[key] = value)
     );
