@@ -40,7 +40,7 @@
             <div v-else class="avatarCon">
               <v-menu bottom min-width="200px" rounded offset-y>
                 <template #activator="{ on }">
-                  <v-btn icon large v-on="on">
+                  <v-btn icon large v-on="on" @click="updateData">
                     <v-avatar
                       class="avatar"
                       color="primary"
@@ -171,6 +171,20 @@ export default {
       if (this.search) {
         this.$router.push(`/search?q=${this.search}`)
       }
+    },
+    async updateData(){
+      const token = this.$cookies.get('authToken')
+      await this.$axios
+        .$get('users/get', {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          this.$store.commit('user/login', { ...res, token })
+        })
+        .catch((e) => {
+        })
     }
   },
 }

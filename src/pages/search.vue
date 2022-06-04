@@ -89,25 +89,9 @@ export default {
     ]
     };
   }, 
-  // head: {
-  //   title: 'مبرمجون | بحث',
-  //   meta: [
-  //     // { charset: 'utf-8' },
-  //     // { 'http-equiv': 'pragma', content: 'no-cache' },
-  //     // { 'http-equiv': 'cache-control', content: 'no-cache' },
-  //     // { 'http-equiv': 'expires', content: '0' },
-  //     // { content: 'telephone=no', name: 'format-detection' }
-  //   ],
-  //   script: [
-  //     {
-  //       // innerHTML: 'console.log("hello")',
-  //     	// __dangerouslyDisableSanitizers: ['script']
-  //       type: 'text/javascript',
-  //       src: "https://cse.google.com/cse.js?cx=20ceafc9ef06684f4",
-  //       async: true,
-  //     }
-  //   ]
-  // } 
+  beforeDestroy() {
+    document.querySelector("input.search").value = ""
+  },
   };
 </script>
 <style lang="scss" scoped>
