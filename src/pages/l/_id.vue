@@ -24,8 +24,8 @@ export default {
             (v) => !!v || 'الاسم مطلوب',
             (v) =>
               (v &&
-                v.length >= '10' &&
-                'Name must be less than 10 characters') ||
+                v.length >= '50' &&
+                'Name must be less than 50 characters') ||
               true,
           ],
           email: '',

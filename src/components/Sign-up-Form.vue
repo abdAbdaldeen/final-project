@@ -14,7 +14,7 @@
         <v-text-field
           v-model="name"
           class="tf"
-          :counter="10"
+          :counter="50"
           label="الاسم"
           :rules="nameRules"
           required
@@ -41,7 +41,7 @@
           label="كلمة المرور"
           hint="8 حروف على الاقل "
           required
-          :rules="[passwordRules.required, passwordRules.min]"
+          :rules="[passwordRules.required, passwordRules.min,passwordRules.validationPass]"
           :type="show ? 'text' : 'password'"
           outlined
           counter
@@ -82,7 +82,7 @@ export default {
     nameRules: [
       (v) => !!v || 'الاسم مطلوب',
       (v) =>
-        (v && v.length >= '10' && 'Name must be less than 10 characters') ||
+        (v && v.length >= '50' && 'الاسم يجب ان يكون اقل من 50 حرف ') ||
         true,
     ],
     email: '',
@@ -94,8 +94,9 @@ export default {
     show: false,
     passwordRules: {
       required: (value) => !!value || 'كلمة المرور مطلوبة',
-      min: (v) => (v && v.length >= 8) || 'Min 8 characters',
-      emailMatch: () => `The email and password you entered don't match`,
+      min: (v) => (v && v.length >= 8) || '8 حروف على الاقل',
+      validationPass :(v) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(v) || "كلمة المرور يجب ان تحتوي 8 خانات على الاقل ،حرف واحد على الاقل، رقم واحد على الاقل ورمز خاص واحد على الاقل." ,
+
     },
     errorMsg: '',
     loading: false,
