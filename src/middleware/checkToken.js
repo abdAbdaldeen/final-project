@@ -1,4 +1,6 @@
 export default async function ({ store, app, $axios }) {
+  store.commit('categories/removeActive')
+
   const token = app.$cookies.get('authToken')
   if (token && store.state.user.displayName) {
     return;
